@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Asistencia Hoy</title>
+    </head>
+    <body>
+        <!--PAGINA LISTAR ASISTENCIA-->
+        <div data-role="page" id="asistenciahoy" data-theme="a">
+            <div data-role="header">
+                <h1>Buscar Asistencia</h1>
+                <div data-role="navbar" data-iconpos="bottom">
+                    <ul>
+                        <li>
+                            <a href="index.html" id="lista" class="ui-btn-active ui-state-persist" data-direction="reverse"
+                               data-transition="slide" data-icon="back">
+                                Volver
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content" >
+                <input type="date" name="fecha_asistencia" id="fecha_asistencia" placeholder="Fecha de asistencia" data-theme="a" data-corners="false">
+                <input type="button" class="ui-btn ui-input-btn" value="Listar Asistencia" id="listarAsistenciaBtn" data-icon="check" data-iconpos="rigth" data-theme="a" data-corners="false"/>
+                <br>
+                <form class="ui-filterable">
+                    <input id="buscarEstudiante" data-type="search" data-theme="a" placeholder="Buscar Estudiante" data-corners="false">
+                </form>
+                <ul id="listaEstudiantes" data-role="listview" data-corners="false" data-filter="true" data-input="#buscarEstudiante" data-inset="true" data-theme="a">
+
+                </ul>
+            </div>
+
+        </div>
+    </body>
+</html>
