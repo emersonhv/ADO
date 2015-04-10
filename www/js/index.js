@@ -15,6 +15,7 @@ var app = {
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
         document.getElementById('listarAsistenciaBtn').addEventListener('click', this.asistenciahoy, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
+        document.getElementById('botonInfo').addEventListener('click', this.verinfo, false);
     },
     // deviceready Event Handler
     //
@@ -219,6 +220,16 @@ var app = {
             alert("encoding failed: " + fail);
           }
         );
+    },
+    
+    verinfo:function() {
+        var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+        deviceInfo.get(function(result) {
+            alert("result = " + result);
+            $("#texto-lon").text(result);
+        }, function() {
+            alert("error");
+        });
     }
     
     
