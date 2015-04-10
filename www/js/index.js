@@ -9,13 +9,13 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('deviceready', this.accesoPagina, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
         document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
         document.getElementById('listarAsistenciaBtn').addEventListener('click', this.asistenciahoy, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
-        document.getElementById('botonInfo').addEventListener('click', this.verinfo, false);
     },
     // deviceready Event Handler
     //
@@ -34,6 +34,27 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    
+    accesoPagina: function() {
+        var ID = this.obtenerID;
+        if(ID != 0){
+            try {
+                $.ajax({
+                    type:'GET',
+                    url:'http://ado.applublish.hol.es/dispositivos/'+ID,
+                    cache:false,
+                    dataType:'json',
+                    success:function(result,status,jqXHR){
+                        if (result.length == 0){
+                            $("div#index").css('display','none');
+                        }
+                    }
+                });
+            } catch (error){
+                alert("Erro, comuniquese con el administrador de la aplicación.");
+            }
+        }
     },
     
     borrarFormulario:function(){
@@ -222,13 +243,12 @@ var app = {
         );
     },
     
-    verinfo:function() {
+    obtenerID:function() {
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         deviceInfo.get(function(result) {
-            alert("Device ID: " + result.deviceID);
-            $("#texto-lon").html(result.deviceID);
+            return result.deviceID;
         }, function() {
-            alert("error");
+            return 0;
         });
     }
     

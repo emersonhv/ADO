@@ -66,12 +66,6 @@
                         <option value="Fe 1 y Fe 2">Fe 1 y Fe 2</option>
                         <option value="Arrepentimientos de obras muertas">Arrepentimientos de obras muertas</option>
                     </select>
-                    <!--prueba comentario-->
-                    
-                    <textarea id="texto-lon">
-                        
-                    </textarea>
-                    <button id="botonInfo">Ver info</button>
                     <br>
                     
                     <fieldset class="ui-grid-a">
@@ -205,16 +199,6 @@
             } catch (error) {
                 alert(error);
             }
-            
-            // DEVICE INFO
-
-            var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-            deviceInfo.get(function(result) {
-                alert("result = " + result);
-                $("#texto-lon").text(result);
-            }, function() {
-                alert("error");
-            });
         </script>
     </body>
 </html>
