@@ -38,7 +38,7 @@ var app = {
     
     accesoPagina: function() {
         //var ID = this.obtenerID;
-        var ID = 12;
+        var ID = '12';
         if(ID != 0){
             try {
                 $.ajax({
