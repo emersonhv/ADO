@@ -37,7 +37,8 @@ var app = {
     },
     
     accesoPagina: function() {
-        var ID = this.obtenerID;
+        //var ID = this.obtenerID;
+        var ID = 12;
         if(ID != 0){
             try {
                 $.ajax({
@@ -48,11 +49,13 @@ var app = {
                     success:function(result,status,jqXHR){
                         if (result.length == 0){
                             $("div#index").css('display','none');
+                        }else{
+                            alert("Usted no esta autorizado para utilizar esta aplicación.");
                         }
                     }
                 });
             } catch (error){
-                alert("Erro, comuniquese con el administrador de la aplicación.");
+                alert("Error, comuniquese con el administrador de la aplicación : ", error);
             }
         }
     },
