@@ -23,6 +23,9 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        alert("1");
+        this.accesoPagina;
+        alert("2");
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -32,9 +35,7 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        alert("1");
-        this.accesoPagina;
-        alert("2");
+        
         console.log('Received Event: ' + id);
     },
     
