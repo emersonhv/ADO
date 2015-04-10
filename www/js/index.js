@@ -9,7 +9,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('deviceready', this.accesoPagina, false);
+        //document.addEventListener('deviceready', this.accesoPagina, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
         document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
@@ -32,7 +32,7 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
+        this.accesoPagina;
         console.log('Received Event: ' + id);
     },
     
@@ -48,6 +48,7 @@ var app = {
                     dataType:'json',
                     success:function(result,status,jqXHR){
                         if (result.length == 0){
+                            alert(result.length);
                             $("div#index").css('display','none');
                         }else{
                             alert("Usted no esta autorizado para utilizar esta aplicación.");
