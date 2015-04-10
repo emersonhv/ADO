@@ -32,13 +32,16 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
+        alert("1");
         this.accesoPagina;
+        alert("2");
         console.log('Received Event: ' + id);
     },
     
     accesoPagina: function() {
         //var ID = this.obtenerID;
         var ID = '12';
+        alert(ID);
         if(ID != 0){
             try {
                 $.ajax({
@@ -47,6 +50,7 @@ var app = {
                     cache:false,
                     dataType:'json',
                     success:function(result,status,jqXHR){
+                        alert(result.length);
                         if (result.length == 0){
                             alert(result.length);
                             $("div#index").css('display','none');
