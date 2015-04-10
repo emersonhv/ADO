@@ -205,6 +205,49 @@
             } catch (error) {
                 alert(error);
             }
+
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+        scanner.scan( function (result) {
+
+            console.log("Scanner result: \n" +
+                "text: " + result.text + "\n" +
+                "format: " + result.format + "\n" +
+                "cancelled: " + result.cancelled + "\n");
+            try {
+                var str = result.text.toString();
+                var est = str.split(":");
+                $.ajax({
+                    type:'GET',
+                    url:'http://ado.applublish.hol.es/estudiante/'+est[0],
+                    cache:false,
+                    dataType:'json',
+                    success:function(result,status,jqXHR){
+                        $("#id").val(result[0].id);
+                        $("#nombre").val(result[0].nombre);
+                        $("#apellidos").val(result[0].apellidos);
+                        $("#lideres").val(result[0].lideres);
+                        $("#dia").val(result[0].dia);
+                        //$("#dia").val(result[0].dia);
+                    }
+                });
+            } catch (error) {
+                alert(error);
+            }
+            //document.getElementById("info").innerHTML = result.text;
+            //console.log(result);
+            /*
+            if (args.format == "QR_CODE") {
+                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+            }
+            */
+
+        }, function (error) {
+            console.log("Scanning failed: ", error);
+        } );
+            
+            // DEVICE INFO
+
             var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
             deviceInfo.get(function(result) {
                 alert("result = " + result);
