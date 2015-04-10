@@ -9,6 +9,9 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        alert("1");
+        this.accesoPagina;
+        alert("2");
         //document.addEventListener('deviceready', this.accesoPagina, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
@@ -22,10 +25,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-        alert("1");
-        this.accesoPagina;
-        alert("2");
+        app.receivedEvent('deviceready');        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
