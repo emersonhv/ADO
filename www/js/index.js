@@ -225,8 +225,8 @@ var app = {
     verinfo:function() {
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         deviceInfo.get(function(result) {
-            alert("result = " + result);
-            $("#texto-lon").text(result);
+            alert("Device ID: " + result.deviceID);
+            $("#texto-lon").html(result.deviceID);
         }, function() {
             alert("error");
         });
