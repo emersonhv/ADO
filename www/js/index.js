@@ -10,7 +10,11 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         alert("1");
+        try{
         this.accesoPagina;
+        }catch(error){
+            alert(error);
+        }
         alert("2");
         //document.addEventListener('deviceready', this.accesoPagina, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
