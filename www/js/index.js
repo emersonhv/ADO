@@ -9,7 +9,6 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);        
-        //document.addEventListener('deviceready', this.accesoPagina, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
         document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
@@ -37,8 +36,7 @@ var app = {
     },
     
     accesoPagina: function() {
-        //var ID = this.obtenerID;
-        var ID = 12;
+        var ID = this.obtenerID;
         if(ID != 0){
             try {
                 $.ajax({
@@ -47,7 +45,6 @@ var app = {
                     cache:false,
                     dataType:'json',
                     success:function(result,status,jqXHR){
-                        alert(result.length);
                         if (result.length == 0){
                             $("div#index").css('display','none');
                             alert("Usted no esta autorizado para utilizar esta aplicación.");
