@@ -8,14 +8,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-        alert("1");
-        try{
-        this.accesoPagina;
-        }catch(error){
-            alert(error);
-        }
-        alert("2");
+        document.addEventListener('deviceready', this.onDeviceReady, false);        
         //document.addEventListener('deviceready', this.accesoPagina, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
@@ -23,6 +16,14 @@ var app = {
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
         document.getElementById('listarAsistenciaBtn').addEventListener('click', this.asistenciahoy, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
+        alert("1");
+        try{
+            alert("2");
+        this.accesoPagina;
+        }catch(error){
+            alert(error);
+        }
+        alert("3");
     },
     // deviceready Event Handler
     //
