@@ -38,8 +38,7 @@ var app = {
     
     accesoPagina: function() {
         //var ID = this.obtenerID;
-        var ID = '12';
-        alert(ID);
+        var ID = 12;
         if(ID != 0){
             try {
                 $.ajax({
@@ -50,9 +49,7 @@ var app = {
                     success:function(result,status,jqXHR){
                         alert(result.length);
                         if (result.length == 0){
-                            alert(result.length);
                             $("div#index").css('display','none');
-                        }else{
                             alert("Usted no esta autorizado para utilizar esta aplicación.");
                         }
                     }
