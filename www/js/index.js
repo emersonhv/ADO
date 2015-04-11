@@ -114,7 +114,7 @@ var app = {
             var nombre_clases = $("#clases").val();
             var carnet = $("#carnet").val();
             var bimestre = $("#bimestre").val();
-            var fecha = $("#fecha_asistencia").val();
+            var fecha = $("#fecha").val();
             alert(fecha);
             var str = fecha;
             var est = str.split("/");
