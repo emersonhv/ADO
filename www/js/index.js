@@ -36,8 +36,8 @@ var app = {
     },
     
     accesoPagina: function() {
-        //var ID = this.obtenerID;
-        var ID = 112;
+        var ID = parseInt(this.obtenerID);
+        //var ID = 112;
         if(ID != 0) {
             try {
                 $.ajax({
