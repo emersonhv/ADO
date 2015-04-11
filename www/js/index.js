@@ -115,7 +115,8 @@ var app = {
             var carnet = $("#carnet").val();
             var bimestre = $("#bimestre").val();
             var fecha = $("#fecha_asistencia").val();
-            var str = fecha.toString();
+            alert(fecha);
+            var str = fecha;
             var est = str.split("/");
             fecha = est[2]+"-"+est[1]+"-"+est[0];
             alert(fecha);
