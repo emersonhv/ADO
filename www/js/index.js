@@ -36,22 +36,23 @@ var app = {
     },
     
     accesoPagina: function() {
-        var ID = this.obtenerID;
-        if(ID != 0){
+        //var ID = this.obtenerID;
+        var ID = 112;
+        if(ID != 0) {
             try {
                 $.ajax({
                     type:'GET',
                     url:'http://ado.applublish.hol.es/dispositivos/'+ID,
                     cache:false,
                     dataType:'json',
-                    success:function(result,status,jqXHR){
-                        if (result.length == 0){
+                    success:function(result,status,jqXHR) {
+                        if (result.length == 0) {
                             $("div#index").css('display','none');
                             alert("Usted no esta autorizado para utilizar esta aplicación.");
                         }
                     }
                 });
-            } catch (error){
+            } catch (error) {
                 alert("Error, comuniquese con el administrador de la aplicación : ", error);
             }
         }
