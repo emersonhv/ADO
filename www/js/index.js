@@ -118,6 +118,7 @@ var app = {
             var str = fecha.toString();
             var est = str.split("/");
             fecha = est[2]+"-"+est[1]+"-"+est[0];
+            alert(fecha);
             var post = "id_estudiante="+id_estudinte+"&nombre_clases="+nombre_clases+"&carnet="+carnet+"&fecha="+fecha+"&bimestre="+bimestre;
             $.ajax({
                 type:'POST',
