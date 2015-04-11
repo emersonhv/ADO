@@ -117,7 +117,7 @@ var app = {
             var fecha = $("#fecha_asistencia").val();
             var str = fecha.toString();
             var est = str.split("/");
-            fecha = est[2]+"-"+est+[1]+"-"+est[0];
+            fecha = est[2]+"-"+est[1]+"-"+est[0];
             var post = "id_estudiante="+id_estudinte+"&nombre_clases="+nombre_clases+"&carnet="+carnet+"&fecha="+fecha+"&bimestre="+bimestre;
             $.ajax({
                 type:'POST',
