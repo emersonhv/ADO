@@ -171,9 +171,9 @@ var app = {
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    $("#detalle_nombre").html(result[0].nombre);
-                    $("#detalle_apellidos").html(result[0].apellidos);
-                    $("#detalle_lideres").html(result[0].lideres);
+                    $("#detalle_nombre").html("<b>Nombre:</b> "+result[0].nombre);
+                    $("#detalle_apellidos").html("<b>Apellidos:</b> "+result[0].apellidos);
+                    $("#detalle_lideres").html("<b>Lideres:</b> "+result[0].lideres);
                     $("#numero_clases_bimetre1").html("<b>Bimestre 1:</b> "+result[0].bimestre1);
                     $("#numero_clases_bimetre2").html("<b>Bimestre 2:</b> "+result[0].bimestre2);
                     $("#numero_clases_bimetre3").html("<b>Bimestre 3:</b> "+result[0].bimestre3);
