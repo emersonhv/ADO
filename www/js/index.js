@@ -176,7 +176,7 @@ var app = {
                     $('#listaEstudiantes').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlStudent= "<li><a href='#' id='"+p.id+"'>"+
+                        htmlStudent= "<li><a href='#PageDetalleEstudiante&dato="+p.id+"' id='"+p.id+"' data-transition='slide'>"+
                         "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
                         "<p>Día: "+p.dia+"</p> <p>Lideres: "+p.lideres+"</p></a> </li>";
                         $('#listarEstudiantes').append(htmlStudent);

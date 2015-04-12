@@ -174,6 +174,53 @@
             </div>
 
         </div>
+        <!-- DETALLE ESTUDIANTE-->
+        <div data-role="page" id="PageDetalleEstudiante" data-theme="e">
+            <div data-role="header">
+                <h1>Detalle Estudiante</h1>
+                <div data-role="navbar" data-iconpos="bottom">
+                    <ul>
+                        <li>
+                            <a href="#PageListEstudiante" id="lista" class="ui-btn-active ui-state-persist" data-direction="reverse"
+                               data-transition="slide" data-icon="back">
+                                Volver
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <form>
+                    <label for="nombre">Nombre(s): </label>
+                    <label id="detalle_nombre" ></label>
+                    <label for="apellidos">Apellidos:</label>
+                    <label id="detalle_apellidos" ></label>
+                    <label for="lideres">Nombre de Lideres:</label>
+                    <label id="detalle_lideres" ></label>
+                    <label for="dia">Día:</label>
+                    <label id="detalle_dia" ></label>
+                    
+                    <br>
+                    <label >Bimestres</label>
+                    <label id="numero_clases_bimetre1" ></label>
+                    <label id="numero_clases_bimetre2" ></label>
+                    <label id="numero_clases_bimetre3" ></label>
+                    <label id="numero_clases_bimetre4" ></label>
+                    <script type="text/javascript">
+                        var regexS = "[\\?&]dato=([^&#]*)";
+                        var regex = new RegExp (regexS);
+                        var tmpURL = window.location.href;
+                        var results = regex.exec(tmpURL);
+                        if( results == null )
+                            alert("indefinido");
+                        else
+                            alert(results[1]);
+                    </script>
+                </form>
+            </div>
+        </div>
+
         <!-- Acerca De -->
         <div data-role="page" id="PageDialogAcercaDe" data-theme="e" data-dialog="true">
             <div data-role="header">
