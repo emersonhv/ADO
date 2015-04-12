@@ -207,16 +207,8 @@
                     <label id="numero_clases_bimetre2" ></label>
                     <label id="numero_clases_bimetre3" ></label>
                     <label id="numero_clases_bimetre4" ></label>
-                    <script type="text/javascript">
-                        var regexS = "[\\?&]dato=([^&#]*)";
-                        var regex = new RegExp (regexS);
-                        var tmpURL = window.location.href;
-                        var results = regex.exec(tmpURL);
-                        if( results == null )
-                            alert("indefinido");
-                        else
-                            alert(results[1]);
-                    </script>
+                    <br>
+                    <input type="submit" onclick=""/>
                 </form>
             </div>
         </div>
@@ -240,6 +232,7 @@
         <script type="text/javascript" src="deviceinformation.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
+            var idEstudiante = 0;
             try {
                 app.initialize();
                 //app.accesoPagina();
