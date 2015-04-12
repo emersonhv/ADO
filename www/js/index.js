@@ -66,11 +66,11 @@ var app = {
     },
 
     guardarEstudiante:function(){
-        if($("#id").val()=="") {
-            var nombre = $("#nombre").val();
-            var apellidos = $("#apellidos").val();
-            var lideres = $("#lideres").val();
-            var dia = $("#dia").val();
+        //if($("#id").val()=="") {
+            var nombre = $("#save_nombre").val();
+            var apellidos = $("#save_apellidos").val();
+            var lideres = $("#save_lideres").val();
+            var dia = $("#save_dia").val();
             var post = "nombre="+nombre+"&apellidos="+apellidos+"&dia="+dia+"&lideres="+lideres;
             $.ajax({
                 type:'POST',
@@ -85,9 +85,9 @@ var app = {
                     }
                 }
             });
-        } else {
-            alert("Borre el formulario");
-        }
+        //} else {
+        //    alert("Borre el formulario");
+        //}
     },
 
     asistenciahoy:function(){

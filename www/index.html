@@ -101,8 +101,7 @@
                 </form>
 
                 <ul id="listarEstudiantes" data-corners="false" data-corners="false" data-role="listview" data-filter="true" data-input="#buscarEstudiante" data-inset="true" data-theme="e">
-                    <li>Hola</li>
-                    <li>Hola2</li>
+
                 </ul>
             </div>
 
@@ -126,14 +125,13 @@
             <div data-role="main" class="ui-content">
                 <form>
                     <label for="nombre">Nombre(s):</label>
-                    <input type="hidden" name="id" id="id" >
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre(s)" data-theme="e" data-corners="false">
+                    <input type="text" name="nombre" id="save_nombre" placeholder="Nombre(s)" data-theme="e" data-corners="false">
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" data-theme="e" data-corners="false">
+                    <input type="text" name="apellidos" id="save_apellidos" placeholder="Apellidos" data-theme="e" data-corners="false">
                     <label for="lideres">Nombre de Lideres:</label>
-                    <input type="text" name="lideres" id="lideres" placeholder="Nombre de Lideres" data-theme="e" data-corners="false">
+                    <input type="text" name="lideres" id="save_lideres" placeholder="Nombre de Lideres" data-theme="e" data-corners="false">
                     <label for="dia">Día:</label>
-                    <input type="text" name="dia" id="dia" placeholder="Día de asistencia a ADO" data-theme="e" data-corners="false">
+                    <input type="text" name="dia" id="save_dia" placeholder="Día de asistencia a ADO" data-theme="e" data-corners="false">
                     
                     <br>
                     <fieldset class="ui-grid-a">
@@ -141,7 +139,7 @@
                             <input type="button" data-corners="false" class="ui-btn ui-input-btn" value="Nuevo Estudiante" id="guardarEstudianteBtn" data-icon="plus" data-iconpos="top" data-theme="e"/>
                         </div>
                         <div class="ui-block-b">
-                            <input type="button" data-corners="false" class="ui-btn ui-input-btn" value="Borrar Formulario" id="reset" data-icon="delete" data-iconpos="top" data-theme="e"/>
+                            <input type="reset" data-corners="false" class="ui-btn ui-input-btn" value="Borrar Formulario" id="reset2" data-icon="delete" data-iconpos="top" data-theme="e"/>
                         </div>
                     </fieldset>
                 </form>
