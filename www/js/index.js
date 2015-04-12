@@ -163,7 +163,27 @@ var app = {
     },
     
     verDetalleEstudiante:function(idE){
-        alert(idE);
+        try {
+            
+            $.ajax({
+                type:'GET',
+                url:'http://ado.applublish.hol.es/estudiante/asistencia/'+idE,
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    $("#detalle_nombre").val(result[0].nombre);
+                    $("#detalle_apellidos").val(result[0].apellidos);
+                    $("#detalle_lideres").val(result[0].lideres);
+                    $("#numero_clases_bimetre1").val("Bimestre 1: "+result[0].bimestre1);
+                    $("#numero_clases_bimetre2").val("Bimestre 2: "+result[0].bimestre2);
+                    $("#numero_clases_bimetre3").val("Bimestre 3: "+result[0].bimestre3);
+                    $("#numero_clases_bimetre4").val("Bimestre 4: "+result[0].bimestre4);
+                    //$("#dia").val(result[0].dia);
+                }
+            });
+        } catch (error) {
+            alert(error);
+        }
     },
 
     listarEstudiantes:function(){
