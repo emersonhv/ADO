@@ -83,6 +83,7 @@ var app = {
                         $('#clases').append(htmlClases);
                     }
                     $('#clases').selectmenu('refresh', true);
+                    $('#bimestre').selectmenu('refresh', true);
                     //$('#listarEstudiantes').listview('refresh');
                 }
             });
