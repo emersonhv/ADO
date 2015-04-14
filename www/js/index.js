@@ -13,7 +13,7 @@ var app = {
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
         document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
-        document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
+        //document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
     },
@@ -175,7 +175,7 @@ var app = {
                         $('#cantidad_asistencia').html("<b>Cantidad de estudiantes: "+result.length+"</b>"):
                         for (var i = 0; i < result.length; i++) {
                             var p = result[i];
-                            htmlAsistencia = "<li><a href='#' id='"+p.id+"'>"+
+                            htmlAsistencia = "<li><a href='#' >"+
                             "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
                             "<p>Lideres: "+p.lideres+ "</p> <p>Subred: "+p.subred+"</p> </a> </li>";
                             $('#listaAsistencia').append(htmlAsistencia);
