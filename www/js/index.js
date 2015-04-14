@@ -79,9 +79,10 @@ var app = {
                     $('#bimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlClases = "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
-                        $('#clases').append(htmlClases);
+                        htmlClases = htmlClases + "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
                     }
+                    $('#clases').html(htmlClases);
+                    $('#clases').selectmenu('refresh');
                     //$('#listarEstudiantes').listview('refresh');
                 }
             });
