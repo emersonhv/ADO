@@ -75,13 +75,13 @@ var app = {
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    var htmlStudent='';
+                    var htmlClases='';
                     $('#bimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlClases = htmlClases + "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
+                        htmlClases = "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
+                        $('#clases').append(htmlClases);
                     }
-                    $('#clases').append(htmlClases);
                     $('#clases').selectmenu('refresh', true);
                     //$('#listarEstudiantes').listview('refresh');
                 }
