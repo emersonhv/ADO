@@ -244,12 +244,11 @@
         <script type="text/javascript" src="deviceinformation.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            var idEstudiante = 0;
             try {
                 app.initialize();
                 //app.accesoPagina();
             } catch (error) {
-                alert(error);
+                alert("Error: "+error);
             }
             $( document ).on( "pageinit", "#index", function() {
                 $( document ).on( "swiperight", "#index", function( e ) {

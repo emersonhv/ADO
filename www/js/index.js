@@ -13,7 +13,7 @@ var app = {
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
         document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
-        //document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
+        document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
     },
