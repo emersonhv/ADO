@@ -81,7 +81,7 @@ var app = {
                         var p = result[i];
                         htmlClases = htmlClases + "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
                     }
-                    $('#clases').html(htmlClases);
+                    $('#clases').append(htmlClases);
                     $('#clases').selectmenu('refresh');
                     //$('#listarEstudiantes').listview('refresh');
                 }
