@@ -82,7 +82,7 @@ var app = {
                         htmlClases = htmlClases + "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
                     }
                     $('#clases').append(htmlClases);
-                    $('#clases').selectmenu('refresh');
+                    $('#clases').selectmenu('refresh', true);
                     //$('#listarEstudiantes').listview('refresh');
                 }
             });
