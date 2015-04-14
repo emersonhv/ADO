@@ -13,7 +13,7 @@ var app = {
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
         document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
-        document.getElementById('listarAsistenciaBtn').addEventListener('click', this.asistenciahoy, false);
+        document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
     },
@@ -143,7 +143,8 @@ var app = {
             var bimestre = $("#bimestre").val();
             var fecha = $("#fecha").val();
 
-            var post = "id_estudiante="+id_estudinte+"&nombre_clases="+nombre_clases+"&carnet="+carnet+"&fecha="+fecha+"&bimestre="+bimestre;
+            var post = "id_estudiante="+id_estudinte+"&nombre_clases="+nombre_clases
+            +"&carnet="+carnet+"&fecha="+fecha+"&bimestre="+bimestre;
             $.ajax({
                 type:'POST',
                 url:'http://ado.applublish.hol.es/asistencia',
@@ -169,16 +170,17 @@ var app = {
                     cache:false,
                     dataType:'json',
                     success:function(result,status,jqXHR){
-                        var htmlStudent='';
-                        $('#listaEstudiantes').empty();
+                        var htmlAsistencia='';
+                        $('#listaAsistencia').empty();
+                        $('#cantidad_asistencia').html("Cantidad de estudiantes: "+result.length):
                         for (var i = 0; i < result.length; i++) {
                             var p = result[i];
-                            htmlStudent= "<li><a href='#' id='"+p.id+"'>"+
+                            htmlAsistencia = "<li><a href='#' id='"+p.id+"'>"+
                             "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
-                            "<p>Fecha: "+p.fecha+ "</p> <p>Clases: "+p.nombre_clases+"</p> </a> </li>";
-                            $('#listaEstudiantes').append(htmlStudent);
+                            "<p>Lideres: "+p.lideres+ "</p> <p>Subred: "+p.subred+"</p> </a> </li>";
+                            $('#listaAsistencia').append(htmlAsistencia);
                         }
-                        $('#listaEstudiantes').listview('refresh');
+                        $('#listaAsistencia').listview('refresh');
                     }
                 });
             } catch (error){
@@ -227,7 +229,8 @@ var app = {
                     $('#listaEstudiantes').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlStudent= "<li><a href='#PageDetalleEstudiante' onclick='app.verDetalleEstudiante("+p.id+")' id='"+p.id+"' data-transition='slide'>"+
+                        htmlStudent= "<li><a href='#PageDetalleEstudiante' onclick='app.verDetalleEstudiante("+p.id+
+                            ")' id='"+p.id+"' data-transition='slide'>"+
                         "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
                         "<p>Día: "+p.dia+"</p> <p>Lideres: "+p.lideres+"</p></a> </li>";
                         $('#listarEstudiantes').append(htmlStudent);
