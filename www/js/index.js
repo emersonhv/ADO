@@ -15,7 +15,6 @@ var app = {
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
         document.getElementById('listarAsistenciaBtn').addEventListener('click', this.asistenciahoy, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
-        document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
     },
     // deviceready Event Handler
     //
@@ -55,30 +54,6 @@ var app = {
             } catch (error) {
                 alert("Error, comuniquese con el administrador de la aplicación : ", error);
             }
-        }
-    },
-    
-    buscarClasesPorBimestre: function(){
-        var bimestre = $("#bimestre").val();
-        try {
-            $.ajax({
-                type:'GET',
-                url:'http://ado.applublish.hol.es/bimestre/clases/'+bimestre,
-                cache:false,
-                dataType:'json',
-                success:function(result,status,jqXHR){
-                    var htmlStudent='';
-                    $('#bimestre').empty();
-                    for (var i = 0; i < result.length; i++) {
-                        var p = result[i];
-                        htmlClases = "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
-                        $('#clases').append(htmlClases);
-                    }
-                    //$('#listarEstudiantes').listview('refresh');
-                }
-            });
-        } catch (error){
-            alert(error);
         }
     },
     
