@@ -76,7 +76,7 @@ var app = {
                 dataType:'json',
                 success:function(result,status,jqXHR){
                     var htmlClases='';
-                    $('#bimestre').empty();
+                    $('#clases').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
                         htmlClases = "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
