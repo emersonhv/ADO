@@ -244,7 +244,7 @@
         <script type="text/javascript" src="deviceinformation.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            $( document ).on( "pageinit", "#index", function() {
+            /*$( document ).on( "pageinit", "#index", function() {
                 $( document ).on( "swiperight", "#index", function( e ) {
                     // We check if there is no open panel on the page because otherwise
                     // a swipe to close the left panel would also open the right panel (and v.v.).
@@ -255,9 +255,9 @@
                         }
                     }
                 });
-            });
+            });*/
             try {
-                apps.initialize();
+                app.initialize();
             } catch (error) {
                 alert(error);
             }
