@@ -244,12 +244,6 @@
         <script type="text/javascript" src="deviceinformation.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            try {
-                app.initialize();
-                //app.accesoPagina();
-            } catch (error) {
-                alert(error);
-            }
             $( document ).on( "pageinit", "#index", function() {
                 $( document ).on( "swiperight", "#index", function( e ) {
                     // We check if there is no open panel on the page because otherwise
@@ -262,6 +256,11 @@
                     }
                 });
             });
+            try {
+                app.initialize();
+            } catch (error) {
+                alert(error);
+            }
         </script>
     </body>
 </html>
