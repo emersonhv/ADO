@@ -8,6 +8,33 @@
         <link rel="stylesheet" type="text/css" href="jquerymobilexo/themes/jquery.mobile.icons.min.css"/>
         <!--link rel="stylesheet" href="jquerymobile/jquery.mobile.theme-1.4.5.min.css" /-->
         <link rel="stylesheet" href="jquerymobile/jquery.mobile.structure-1.4.5.min.css" />
+        
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+        <!--script type="text/javascript" src="cordova.js"></script-->
+        <!--script type="text/javascript" src="barcodescanner.js"></script-->
+        <script type="text/javascript" src="deviceinformation.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            /*$( document ).on( "pageinit", "#index", function() {
+                $( document ).on( "swiperight", "#index", function( e ) {
+                    // We check if there is no open panel on the page because otherwise
+                    // a swipe to close the left panel would also open the right panel (and v.v.).
+                    // We do this by checking the data that the framework stores on the page element (panel: open).
+                    if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+                        if ( e.type === "swiperight"  ) {
+                            $( "#navpanel" ).panel( "open" );
+                        }
+                    }
+                });
+            });*/
+            try {
+                app.initialize();
+            } catch (error) {
+                alert(error);
+            }
+        </script>
+        
         <title>Ingreso ADO</title>
     </head>
     <body>
@@ -237,31 +264,7 @@
             </div>
 
         </div>
-        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-        <script type="text/javascript" src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
-        <!--script type="text/javascript" src="cordova.js"></script-->
-        <!--script type="text/javascript" src="barcodescanner.js"></script-->
-        <script type="text/javascript" src="deviceinformation.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            /*$( document ).on( "pageinit", "#index", function() {
-                $( document ).on( "swiperight", "#index", function( e ) {
-                    // We check if there is no open panel on the page because otherwise
-                    // a swipe to close the left panel would also open the right panel (and v.v.).
-                    // We do this by checking the data that the framework stores on the page element (panel: open).
-                    if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
-                        if ( e.type === "swiperight"  ) {
-                            $( "#navpanel" ).panel( "open" );
-                        }
-                    }
-                });
-            });*/
-            try {
-                app.initialize();
-            } catch (error) {
-                alert(error);
-            }
-        </script>
+        
     </body>
 </html>
 
