@@ -1,4 +1,4 @@
-var app = {
+var apps = {
     // Application Constructor
     initialize: function() { 
         this.bindEvents();
