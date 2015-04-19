@@ -1,31 +1,31 @@
-var app = {
+//var app = {
     // Application Constructor
-    initialize: function() { 
-        this.bindEvents();
-    },
+    function initialize() { 
+        bindEvents();
+    }
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);        
-        document.getElementById('scan').addEventListener('click', this.scan, false);
-        document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
-        document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
-        document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
-        document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
-        document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
-        document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
-    },
+    function bindEvents() {
+        document.addEventListener('deviceready', onDeviceReady, false);        
+        document.getElementById('scan').addEventListener('click', scan, false);
+        document.getElementById('enviarAsistenciaBtn').addEventListener('click', enviarAsistencia, false);
+        document.getElementById('guardarEstudianteBtn').addEventListener('click', guardarEstudiante, false);
+        document.getElementById('reset').addEventListener('click', borrarFormulario, false);
+        document.getElementById('listarAsistenciaBtn').addEventListener('click', listarAsistencia, false);
+        document.getElementById('listarEstudiantesLink').addEventListener('click', listarEstudiantes, false);
+        document.getElementById('bimestre').addEventListener('change', buscarClasesPorBimestre, false);
+    }
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');        
-    },
+    function onDeviceReady() {
+        receivedEvent('deviceready');        
+    }
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    function receivedEvent(id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -34,17 +34,17 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         
         console.log('Received Event: ' + id);
-    },
+    }
     
-    borrarFormulario:function(){
+    function borrarFormulario(){
         $("#id").val("");
         $("#nombre").val("");
         $("#apellidos").val("");
         $("#lideres").val("");
         $("#dia").val("");
-    },
+    }
     
-    buscarClasesPorBimestre: function(){
+    function buscarClasesPorBimestre(){
         var bimestre = $("#bimestre").val();
         try {
             $.ajax({
@@ -68,9 +68,9 @@ var app = {
         } catch (error){
             alert(error);
         }
-    },
+    }
 
-    guardarEstudiante:function(){
+    function guardarEstudiante(){
         //if($("#id").val()=="") {
             var nombre = $("#save_nombre").val();
             var apellidos = $("#save_apellidos").val();
@@ -93,9 +93,9 @@ var app = {
         //} else {
         //    alert("Borre el formulario");
         //}
-    },
+    }
 
-    asistenciahoy:function(){
+    function asistenciahoy(){
         var fecha = $("#fecha").val();
         $.ajax({
             type:'GET',
@@ -111,9 +111,9 @@ var app = {
                 borrarFormulario();
             }
         });
-    },
+    }
 
-    enviarAsistencia:function(fecha){
+    function enviarAsistencia(fecha){
         if($("#id").val()!="") {
             var id_estudinte = $("#id").val();
             var nombre_clases = $("#clases").val();
@@ -136,9 +136,9 @@ var app = {
         } else {
             alert("Consulte un estudiante!");
         }
-    },
+    }
 
-    listarAsistencia:function(){
+    function listarAsistencia(){
         var fecha = $("#fecha_asistencia").val();//fecha_asistencia
         if(fecha != ""){
             try {
@@ -167,9 +167,9 @@ var app = {
         } else {
             alert("Ingrese fecha del día de asistencia.")
         }
-    },
+    }
     
-    verDetalleEstudiante:function(idE){
+    function verDetalleEstudiante(idE){
         try {
             
             $.ajax({
@@ -191,9 +191,9 @@ var app = {
         } catch (error) {
             alert(error);
         }
-    },
+    }
 
-    listarEstudiantes:function(){
+    function listarEstudiantes(){
         //var f = new Date();
         //var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
         try {
@@ -219,9 +219,9 @@ var app = {
         } catch (error){
             alert(error);
         }
-    },
+    }
 
-    scan:function() {
+    function scan() {
         console.log('scanning');
 
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
@@ -263,9 +263,9 @@ var app = {
         }, function (error) {
             console.log("Scanning failed: ", error);
         } );
-    },
+    }
 
-    encode:function() {
+    function encode() {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
@@ -276,7 +276,7 @@ var app = {
         );
     },
     
-    obtenerID:function() {
+    function obtenerID() {
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         deviceInfo.get(function(result) {
             return result.deviceID;
@@ -286,4 +286,4 @@ var app = {
     }
     
     
-};
+//};
