@@ -1,289 +1,289 @@
-//var app = {
+var app = {
     // Application Constructor
-function initialize() {
-    bindEvents();
-}
-// Bind Event Listeners
-//
-// Bind any events that are required on startup. Common events are:
-// 'load', 'deviceready', 'offline', and 'online'.
-function bindEvents() {
-    document.addEventListener('deviceready', onDeviceReady, false);        
-    document.getElementById('scan').addEventListener('click', scan, false);
-    document.getElementById('enviarAsistenciaBtn').addEventListener('click', enviarAsistencia, false);
-    document.getElementById('guardarEstudianteBtn').addEventListener('click', guardarEstudiante, false);
-    document.getElementById('reset').addEventListener('click', borrarFormulario, false);
-    document.getElementById('listarAsistenciaBtn').addEventListener('click', listarAsistencia, false);
-    document.getElementById('listarEstudiantesLink').addEventListener('click', listarEstudiantes, false);
-    document.getElementById('bimestre').addEventListener('change', buscarClasesPorBimestre, false);
-}
-// deviceready Event Handler
-//
-// The scope of 'this' is the event. In order to call the 'receivedEvent'
-// function, we must explicitly call 'app.receivedEvent(...);'
-function onDeviceReady() {
-    receivedEvent('deviceready');        
-}
-// Update DOM on a Received Event
-function receivedEvent(id) {
-    var parentElement = document.getElementById(id);
-    var listeningElement = parentElement.querySelector('.listening');
-    var receivedElement = parentElement.querySelector('.received');
+    initialize:function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents:function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.getElementById('scan').addEventListener('click', this.scan, false);
+        document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
+        document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
+        document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
+        document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
+        document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
+        document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady:function() {
+        this.receivedEvent('deviceready');        
+    },
+    // Update DOM on a Received Event
+    receivedEvent:function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
 
-    listeningElement.setAttribute('style', 'display:none;');
-    receivedElement.setAttribute('style', 'display:block;');
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
 
-    console.log('Received Event: ' + id);
-}
+        console.log('Received Event: ' + id);
+    },
 
-function borrarFormulario(){
-    $("#id").val("");
-    $("#nombre").val("");
-    $("#apellidos").val("");
-    $("#lideres").val("");
-    $("#dia").val("");
-}
+    borrarFormulario:function(){
+        $("#id").val("");
+        $("#nombre").val("");
+        $("#apellidos").val("");
+        $("#lideres").val("");
+        $("#dia").val("");
+    },
 
-function buscarClasesPorBimestre(){
-    var bimestre = $("#bimestre").val();
-    try {
-        $.ajax({
-            type:'GET',
-            url:'http://ado.applublish.hol.es/bimestre/clases/'+bimestre,
-            cache:false,
-            dataType:'json',
-            success:function(result,status,jqXHR){
-                var htmlClases='';
-                $('#clases').empty();
-                for (var i = 0; i < result.length; i++) {
-                    var p = result[i];
-                    htmlClases = "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
-                    $('#clases').append(htmlClases);
-                }
-                $('#clases').selectmenu('refresh', true);
-                $('#bimestre').selectmenu('refresh', true);
-                //$('#listarEstudiantes').listview('refresh');
-            }
-        });
-    } catch (error){
-        alert(error);
-    }
-}
-
-function guardarEstudiante(){
-    //if($("#id").val()=="") {
-        var nombre = $("#save_nombre").val();
-        var apellidos = $("#save_apellidos").val();
-        var lideres = $("#save_lideres").val();
-        var dia = $("#save_dia").val();
-        var post = "nombre="+nombre+"&apellidos="+apellidos+"&dia="+dia+"&lideres="+lideres;
-        $.ajax({
-            type:'POST',
-            url:'http://ado.applublish.hol.es/estudiante',
-            data:post,
-            cache:false,
-            dataType:'json',
-            success:function(result,status,jqXHR){
-                alert(result.mensaje);
-                if(result.estado == true) {
-                    borrarFormulario();
-                }
-            }
-        });
-    //} else {
-    //    alert("Borre el formulario");
-    //}
-}
-
-function asistenciahoy(){
-    var fecha = $("#fecha").val();
-    $.ajax({
-        type:'GET',
-        url:'http://ado.applublish.hol.es/asistencia/'+$("#id").val()+"/"+fecha,
-        cache:false,
-        dataType:'json',
-        success:function(result,status,jqXHR){
-            if(result.length == 0) {
-                enviarAsistencia(fecha);
-            } else {
-                alert("Estudiante ya tiene asistencia de hoy.");
-            }
-            borrarFormulario();
-        }
-    });
-}
-
-function enviarAsistencia(fecha){
-    if($("#id").val()!="") {
-        var id_estudinte = $("#id").val();
-        var nombre_clases = $("#clases").val();
-        var carnet = $("#carnet").val();
+    buscarClasesPorBimestre:function(){
         var bimestre = $("#bimestre").val();
-        var fecha = $("#fecha").val();
-
-        var post = "id_estudiante="+id_estudinte+"&nombre_clases="+nombre_clases
-        +"&carnet="+carnet+"&fecha="+fecha+"&bimestre="+bimestre;
-        $.ajax({
-            type:'POST',
-            url:'http://ado.applublish.hol.es/asistencia',
-            data:post,
-            cache:false,
-            dataType:'json',
-            success:function(result,status,jqXHR){
-                alert(result.mensaje);
-            }
-        });
-    } else {
-        alert("Consulte un estudiante!");
-    }
-}
-
-function listarAsistencia(){
-    var fecha = $("#fecha_asistencia").val();//fecha_asistencia
-    if(fecha != ""){
         try {
             $.ajax({
                 type:'GET',
-                url:'http://ado.applublish.hol.es/asistencia/'+fecha,
+                url:'http://ado.applublish.hol.es/bimestre/clases/'+bimestre,
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    var htmlAsistencia='';
-                    $('#listaAsistencia').empty();
-                    $('#cantidad_asistencia').html("<b>Cantidad de estudiantes: "+result.length+"</b>"):
+                    var htmlClases='';
+                    $('#clases').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlAsistencia = "<li><a href='#' >"+
-                        "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
-                        "<p>Lideres: "+p.lideres+ "</p> <p>Subred: "+p.subred+"</p> </a> </li>";
-                        $('#listaAsistencia').append(htmlAsistencia);
+                        htmlClases = "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
+                        $('#clases').append(htmlClases);
                     }
-                    $('#listaAsistencia').listview('refresh');
+                    $('#clases').selectmenu('refresh', true);
+                    $('#bimestre').selectmenu('refresh', true);
+                    //$('#listarEstudiantes').listview('refresh');
                 }
             });
         } catch (error){
             alert(error);
         }
-    } else {
-        alert("Ingrese fecha del día de asistencia.")
-    }
-}
+    },
 
-function verDetalleEstudiante(idE){
-    try {
-
-        $.ajax({
-            type:'GET',
-            url:'http://ado.applublish.hol.es/estudiante/asistencia/'+idE,
-            cache:false,
-            dataType:'json',
-            success:function(result,status,jqXHR){
-                $("#detalle_nombre").html("<b>Nombre:</b> "+result[0].nombre);
-                $("#detalle_apellidos").html("<b>Apellidos:</b> "+result[0].apellidos);
-                $("#detalle_lideres").html("<b>Lideres:</b> "+result[0].lideres);
-                $("#numero_clases_bimetre1").html("<b>Bimestre 1:</b> "+result[0].bimestre1);
-                $("#numero_clases_bimetre2").html("<b>Bimestre 2:</b> "+result[0].bimestre2);
-                $("#numero_clases_bimetre3").html("<b>Bimestre 3:</b> "+result[0].bimestre3);
-                $("#numero_clases_bimetre4").html("<b>Bimestre 4:</b> "+result[0].bimestre4);
-                //$("#dia").val(result[0].dia);
-            }
-        });
-    } catch (error) {
-        alert(error);
-    }
-}
-
-function listarEstudiantes(){
-    //var f = new Date();
-    //var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
-    try {
-        $.ajax({
-            type:'GET',
-            url:'http://ado.applublish.hol.es/estudiantes',
-            cache:false,
-            dataType:'json',
-            success:function(result,status,jqXHR){
-                var htmlStudent='';
-                $('#listaEstudiantes').empty();
-                for (var i = 0; i < result.length; i++) {
-                    var p = result[i];
-                    htmlStudent= "<li><a href='#PageDetalleEstudiante' onclick='app.verDetalleEstudiante("+p.id+
-                        ")' id='"+p.id+"' data-transition='slide'>"+
-                    "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
-                    "<p>Día: "+p.dia+"</p> <p>Lideres: "+p.lideres+"</p></a> </li>";
-                    $('#listarEstudiantes').append(htmlStudent);
-                }
-                $('#listarEstudiantes').listview('refresh');
-            }
-        });
-    } catch (error){
-        alert(error);
-    }
-}
-
-function scan() {
-    console.log('scanning');
-
-    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-    scanner.scan( function (result) {
-
-        console.log("Scanner result: \n" +
-            "text: " + result.text + "\n" +
-            "format: " + result.format + "\n" +
-            "cancelled: " + result.cancelled + "\n");
-        try {
-            var str = result.text.toString();
-            var est = str.split(":");
+    guardarEstudiante:function(){
+        //if($("#id").val()=="") {
+            var nombre = $("#save_nombre").val();
+            var apellidos = $("#save_apellidos").val();
+            var lideres = $("#save_lideres").val();
+            var dia = $("#save_dia").val();
+            var post = "nombre="+nombre+"&apellidos="+apellidos+"&dia="+dia+"&lideres="+lideres;
             $.ajax({
-                type:'GET',
-                url:'http://ado.applublish.hol.es/estudiante/'+est[0],
+                type:'POST',
+                url:'http://ado.applublish.hol.es/estudiante',
+                data:post,
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    $("#id").val(result[0].id);
-                    $("#nombre").val(result[0].nombre);
-                    $("#apellidos").val(result[0].apellidos);
-                    $("#lideres").val(result[0].lideres);
-                    $("#dia").val(result[0].dia);
+                    alert(result.mensaje);
+                    if(result.estado == true) {
+                        borrarFormulario();
+                    }
+                }
+            });
+        //} else {
+        //    alert("Borre el formulario");
+        //}
+    },
+
+    asistenciahoy:function(){
+        var fecha = $("#fecha").val();
+        $.ajax({
+            type:'GET',
+            url:'http://ado.applublish.hol.es/asistencia/'+$("#id").val()+"/"+fecha,
+            cache:false,
+            dataType:'json',
+            success:function(result,status,jqXHR){
+                if(result.length == 0) {
+                    this.enviarAsistencia(fecha);
+                } else {
+                    alert("Estudiante ya tiene asistencia de hoy.");
+                }
+                this.borrarFormulario();
+            }
+        });
+    },
+
+    enviarAsistencia:function(fecha){
+        if($("#id").val()!="") {
+            var id_estudinte = $("#id").val();
+            var nombre_clases = $("#clases").val();
+            var carnet = $("#carnet").val();
+            var bimestre = $("#bimestre").val();
+            var fecha = $("#fecha").val();
+
+            var post = "id_estudiante="+id_estudinte+"&nombre_clases="+nombre_clases
+            +"&carnet="+carnet+"&fecha="+fecha+"&bimestre="+bimestre;
+            $.ajax({
+                type:'POST',
+                url:'http://ado.applublish.hol.es/asistencia',
+                data:post,
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    alert(result.mensaje);
+                }
+            });
+        } else {
+            alert("Consulte un estudiante!");
+        }
+    },
+
+    listarAsistencia:function(){
+        var fecha = $("#fecha_asistencia").val();//fecha_asistencia
+        if(fecha != ""){
+            try {
+                $.ajax({
+                    type:'GET',
+                    url:'http://ado.applublish.hol.es/asistencia/'+fecha,
+                    cache:false,
+                    dataType:'json',
+                    success:function(result,status,jqXHR){
+                        var htmlAsistencia='';
+                        $('#listaAsistencia').empty();
+                        $('#cantidad_asistencia').html("<b>Cantidad de estudiantes: "+result.length+"</b>"):
+                        for (var i = 0; i < result.length; i++) {
+                            var p = result[i];
+                            htmlAsistencia = "<li><a href='#' >"+
+                            "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
+                            "<p>Lideres: "+p.lideres+ "</p> <p>Subred: "+p.subred+"</p> </a> </li>";
+                            $('#listaAsistencia').append(htmlAsistencia);
+                        }
+                        $('#listaAsistencia').listview('refresh');
+                    }
+                });
+            } catch (error){
+                alert(error);
+            }
+        } else {
+            alert("Ingrese fecha del día de asistencia.")
+        }
+    },
+
+    verDetalleEstudiante:function(idE){
+        try {
+
+            $.ajax({
+                type:'GET',
+                url:'http://ado.applublish.hol.es/estudiante/asistencia/'+idE,
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    $("#detalle_nombre").html("<b>Nombre:</b> "+result[0].nombre);
+                    $("#detalle_apellidos").html("<b>Apellidos:</b> "+result[0].apellidos);
+                    $("#detalle_lideres").html("<b>Lideres:</b> "+result[0].lideres);
+                    $("#numero_clases_bimetre1").html("<b>Bimestre 1:</b> "+result[0].bimestre1);
+                    $("#numero_clases_bimetre2").html("<b>Bimestre 2:</b> "+result[0].bimestre2);
+                    $("#numero_clases_bimetre3").html("<b>Bimestre 3:</b> "+result[0].bimestre3);
+                    $("#numero_clases_bimetre4").html("<b>Bimestre 4:</b> "+result[0].bimestre4);
                     //$("#dia").val(result[0].dia);
                 }
             });
         } catch (error) {
             alert(error);
         }
-        //document.getElementById("info").innerHTML = result.text;
-        //console.log(result);
-        /*
-        if (args.format == "QR_CODE") {
-            window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+    },
+
+    listarEstudiantes:function(){
+        //var f = new Date();
+        //var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
+        try {
+            $.ajax({
+                type:'GET',
+                url:'http://ado.applublish.hol.es/estudiantes',
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    var htmlStudent='';
+                    $('#listaEstudiantes').empty();
+                    for (var i = 0; i < result.length; i++) {
+                        var p = result[i];
+                        htmlStudent= "<li><a href='#PageDetalleEstudiante' onclick='app.verDetalleEstudiante("+p.id+
+                            ")' id='"+p.id+"' data-transition='slide'>"+
+                        "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
+                        "<p>Día: "+p.dia+"</p> <p>Lideres: "+p.lideres+"</p></a> </li>";
+                        $('#listarEstudiantes').append(htmlStudent);
+                    }
+                    $('#listarEstudiantes').listview('refresh');
+                }
+            });
+        } catch (error){
+            alert(error);
         }
-        */
+    },
 
-    }, function (error) {
-        console.log("Scanning failed: ", error);
-    } );
-}
+    scan:function() {
+        console.log('scanning');
 
-function encode() {
-    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-    scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-        alert("encode success: " + success);
-      }, function(fail) {
-        alert("encoding failed: " + fail);
-      }
-    );
-},
+        scanner.scan( function (result) {
 
-function obtenerID() {
-    var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-    deviceInfo.get(function(result) {
-        return result.deviceID;
-    }, function() {
-        return 0;
-    });
-}
+            console.log("Scanner result: \n" +
+                "text: " + result.text + "\n" +
+                "format: " + result.format + "\n" +
+                "cancelled: " + result.cancelled + "\n");
+            try {
+                var str = result.text.toString();
+                var est = str.split(":");
+                $.ajax({
+                    type:'GET',
+                    url:'http://ado.applublish.hol.es/estudiante/'+est[0],
+                    cache:false,
+                    dataType:'json',
+                    success:function(result,status,jqXHR){
+                        $("#id").val(result[0].id);
+                        $("#nombre").val(result[0].nombre);
+                        $("#apellidos").val(result[0].apellidos);
+                        $("#lideres").val(result[0].lideres);
+                        $("#dia").val(result[0].dia);
+                        //$("#dia").val(result[0].dia);
+                    }
+                });
+            } catch (error) {
+                alert(error);
+            }
+            //document.getElementById("info").innerHTML = result.text;
+            //console.log(result);
+            /*
+            if (args.format == "QR_CODE") {
+                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+            }
+            */
 
-    
-//};
+        }, function (error) {
+            console.log("Scanning failed: ", error);
+        } );
+    },
+
+    encode:function() {
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+            alert("encode success: " + success);
+          }, function(fail) {
+            alert("encoding failed: " + fail);
+          }
+        );
+    },
+
+    obtenerID:function() {
+        var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+        deviceInfo.get(function(result) {
+            return result.deviceID;
+        }, function() {
+            return 0;
+        });
+    },
+
+
+};
