@@ -275,6 +275,7 @@ var app = {
           }
         );
     },
+    
 
     obtenerID:function() {
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
@@ -283,7 +284,7 @@ var app = {
         }, function() {
             return 0;
         });
-    },
+    }
 
 
 };
