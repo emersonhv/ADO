@@ -228,10 +228,10 @@ var app = {
 
         scanner.scan( function (result) {
 
-            console.log("Scanner result: \n" +
+            /*console.log("Scanner result: \n" +
                 "text: " + result.text + "\n" +
                 "format: " + result.format + "\n" +
-                "cancelled: " + result.cancelled + "\n");
+                "cancelled: " + result.cancelled + "\n");*/
             try {
                 var str = result.text.toString();
                 var est = str.split(":");
