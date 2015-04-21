@@ -245,7 +245,13 @@
         <script type="text/javascript" src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
         <!--script type="text/javascript" src="deviceinformation.js"></script-->
         <script type="text/javascript">
-            /*$( document ).on( "pageinit", "#index", function() {
+            try {
+                app.initialize();
+            } catch (error) {
+                alert(error);
+            }
+            
+            $( document ).on( "pageinit", "#index", function() {
                 $( document ).on( "swiperight", "#index", function( e ) {
                     // We check if there is no open panel on the page because otherwise
                     // a swipe to close the left panel would also open the right panel (and v.v.).
@@ -256,12 +262,7 @@
                         }
                     }
                 });
-            });*/
-            try {
-                app.initialize();
-            } catch (error) {
-                alert(error);
-            }
+            });
         </script>
         
     </body>
