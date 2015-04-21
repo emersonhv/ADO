@@ -224,7 +224,11 @@ var app = {
     scan:function() {
         console.log('scanning');
         alert("Entrada 1");
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        try{
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        }catch(error){
+            alert(error);
+        }
 
         scanner.scan( function (result) {
             alert("Entrada 2");
