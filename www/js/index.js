@@ -223,16 +223,17 @@ var app = {
 
     scan:function() {
         console.log('scanning');
-
+        alert("Entrada 1");
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.scan( function (result) {
-
+            alert("Entrada 2");
             /*console.log("Scanner result: \n" +
                 "text: " + result.text + "\n" +
                 "format: " + result.format + "\n" +
                 "cancelled: " + result.cancelled + "\n");*/
             try {
+                alert("Entrada 3");
                 var str = result.text.toString();
                 var est = str.split(":");
                 $.ajax({
@@ -250,6 +251,7 @@ var app = {
                     }
                 });
             } catch (error) {
+                alert("Entrada 4");
                 alert(error);
             }
             //document.getElementById("info").innerHTML = result.text;
@@ -262,6 +264,7 @@ var app = {
 
         }, function (error) {
             console.log("Scanning failed: ", error);
+            alert("Scanning failed: ", error);
         } );
     },
 
