@@ -205,7 +205,8 @@ var app = {
                     $('#NotasPorBimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlNotas = "<li><h2>"+p.nombre_clases+"</h2><p><input style='width:10px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>+</button></p></li>";
+                        htmlNotas = "<li><a href='#'><h2>"+p.nombre_clases+"</h2><p><input style='width:10px;' type='text' "+
+                            " id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>+</button></p></a></li>";
                         $('#NotasPorBimestre').append(htmlNotas);
                     }
                     $('#NotasPorBimestre').listview('refresh');
