@@ -181,7 +181,7 @@ var app = {
                 success:function(result,status,jqXHR){
                     $("#nombre_estudiante").html("<b>Nombre: </b> "+result[0].nombre+" "+result[0].apellidos);
                     $("#lideres_estudiante").html("<b>Lideres: </b> "+result[0].lideres);
-                    $("#id_est_nota").val(p.id);
+                    $("#id_est_nota").val(result[0].id);
                 }
             });
         } catch (error) {
