@@ -21,15 +21,15 @@
                             <a href="#" data-rel="close">Cerar menú</a>
                         </li>
                         <li data-icon="camera">
-                            <a id="scan" href="#" data-transition="slide" data-corners="false">Escanear</a></li>
+                            <a onclick="$.mobile.showPageLoadingMsg("e", "Cargando...");" id="scan" href="#" data-transition="slide" data-corners="false">Escanear</a></li>
                         <li data-icon="plus">
-                            <a id="guardarEstudiante" href="#PageEstudiante" data-transition="slide" data-corners="false">Nuevo estudiante</a></li>
+                            <a onclick="$.mobile.showPageLoadingMsg("e", "Cargando...");" id="guardarEstudiante" href="#PageEstudiante" data-transition="slide" data-corners="false">Nuevo estudiante</a></li>
                         <li data-icon="search">
-                            <a id="listarAsistencia" href="#PageListarAsistencia" data-transition="slide" id="list" data-corners="false">Buscar asistencia</a></li>
+                            <a onclick="$.mobile.showPageLoadingMsg("e", "Cargando...");" id="listarAsistencia" href="#PageListarAsistencia" data-transition="slide" id="list" data-corners="false">Buscar asistencia</a></li>
                         <li data-icon="search">
-                            <a id="listarEstudiantesLink" href="#PageListEstudiante" data-transition="slide" data-corners="false">Buscar estudiante</a></li>
+                            <a onclick="$.mobile.showPageLoadingMsg("e", "Cargando...");" id="listarEstudiantesLink" href="#PageListEstudiante" data-transition="slide" data-corners="false">Buscar estudiante</a></li>
                         <li data-icon="info">
-                            <a id="acercaDe" href="#PageDialogAcercaDe" data-transition="pop" data-corners="false">Acerca de</a></li>
+                            <a onclick="$.mobile.showPageLoadingMsg("e", "Cargando...");" id="acercaDe" href="#PageDialogAcercaDe" data-transition="pop" data-corners="false">Acerca de</a></li>
                     </ul>
                 </div>
             </div>
@@ -246,7 +246,7 @@
                 <label id="lideres_estudiante"></label>
                 <input type="hidden" id="id_est_nota"/>
                 <br>
-                <label for="bimestre">Bimestre:</label>
+                <h3 for="bimestre">Bimestre:</h3>
                 <select name="bimestre" id="bimestre_est" data-theme="e" data-corners="false" data-native-menu="true">
                     <option value="1">1</option>
                     <option value="2">2</option>

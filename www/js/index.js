@@ -8,6 +8,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents:function() {
+        // FUNCIONES DE PROCESOS
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
@@ -17,6 +18,7 @@ var app = {
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
         document.getElementById('bimestre_est').addEventListener('change', this.verNotasEstudiante, false);
+        
     },
     // deviceready Event Handler
     //
@@ -205,9 +207,11 @@ var app = {
                     $('#NotasPorBimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlNotas = "<h2>"+p.nombre_clases+"</h2><p><input style='width:30px;' type='text' data-corners='false'"+
-                            " id='nota"+p.id_asistencia+"' value='"+
-                            p.nota+"'/> <button data-corners='false' class='ui-btn ui-input-btn' onclick='app.editNota("+p.id_asistencia+",$('#nota"+p.id_asistencia+"').val())'>+</button></p>";
+                        htmlNotas = "<h3>"+p.nombre_clases+"</h3><p><input type='text' data-corners='false'"+
+                            " id='nota"+p.id_asistencia+"' value='"+p.nota+"'/></p>"+
+                            "<p><button data-corners='false' class='ui-btn ui-input-btn' "+
+                            " onclick='app.editNota("+p.id_asistencia+",$('#nota"+p.id_asistencia+"').val())' "+
+                            "data-icon='check' data-iconpos='right'>Editar</button></p>";
                         $('#NotasPorBimestre').append(htmlNotas);
                     }
                     $('#NotasPorBimestre').listview('refresh');
@@ -216,6 +220,10 @@ var app = {
         } catch (error) {
             alert(error);
         }
+    },
+    
+    editNota:function(idA,Nota){
+        
     },
 
     verDetalleEstudiante:function(idE){
