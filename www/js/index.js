@@ -179,8 +179,8 @@ var app = {
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    $("#nombre_estudiante").html("<b>Nombre:</b> "+result[0].nombre+" "+result[0].apellidos);
-                    $("#lideres_estudiante").html("<b>Apellidos:</b> "+result[0].lideres);
+                    $("#nombre_estudiante").html("<b>Nombre: </b> "+result[0].nombre+" "+result[0].apellidos);
+                    $("#lideres_estudiante").html("<b>Lideres: </b> "+result[0].lideres);
                     $("#id_est_nota").val(p.id);
                 }
             });
@@ -208,7 +208,7 @@ var app = {
                         htmlAsistencia = "<p>"+p.nombre_clases+"<input style='width:10px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>Editar</button></p>";
                         $('#NotasPorBimestre').append(htmlNotas);
                     }
-                    //$('#NotasPorBimestre').listview('refresh');
+                    $('#NotasPorBimestre').refresh();
                 }
             });
         } catch (error) {
