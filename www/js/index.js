@@ -205,7 +205,7 @@ var app = {
                     $('#NotasPorBimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlAsistencia = "<p>"+p.nombre_clases+"<input style='width:10px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>Editar</button></p>";
+                        htmlNotas = "<p>"+p.nombre_clases+"<input style='width:10px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>Editar</button></p>";
                         $('#NotasPorBimestre').append(htmlNotas);
                     }
                     $('#NotasPorBimestre').trigger("create");
