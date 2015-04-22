@@ -223,7 +223,7 @@ var app = {
                             "data-icon='check' data-iconpos='right'>Editar</button></p>";
                         $('#NotasPorBimestre').append(htmlNotas);
                     }
-                    $('#NotasPorBimestre').listview('refresh');
+                    $('#NotasPorBimestre').refresh();
                     $.mobile.hidePageLoadingMsg();
                 }
             });
