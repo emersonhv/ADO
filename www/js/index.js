@@ -153,7 +153,7 @@ var app = {
                         $('#cantidad_asistencia').html("<b>Cantidad de estudiantes: "+result.length+"</b>");
                         for (var i = 0; i < result.length; i++) {
                             var p = result[i];
-                            htmlAsistencia = "<li><a href='#' >"+
+                            htmlAsistencia = "<li><a href='#PageNotesEstudiante' onclick='app.verNotasEstudiante("+p.id+")'>"+
                             "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
                             "<p>Lideres: "+p.lideres+ "</p> <p>Subred: "+p.subred+"</p> </a> </li>";
                             $('#listaAsistencia').append(htmlAsistencia);
@@ -166,6 +166,30 @@ var app = {
             }
         } else {
             alert("Ingrese fecha del día de asistencia.")
+        }
+    },
+    
+    verNotasEstudiante:function(idE){
+        try {
+
+            $.ajax({
+                type:'GET',
+                url:'http://ado.applublish.hol.es/notas/estudiante/'+idE,
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    $("#detalle_nombre").html("<b>Nombre:</b> "+result[0].nombre);
+                    $("#detalle_apellidos").html("<b>Apellidos:</b> "+result[0].apellidos);
+                    $("#detalle_lideres").html("<b>Lideres:</b> "+result[0].lideres);
+                    $("#numero_clases_bimetre1").html("<b>Bimestre 1:</b> "+result[0].bimestre1);
+                    $("#numero_clases_bimetre2").html("<b>Bimestre 2:</b> "+result[0].bimestre2);
+                    $("#numero_clases_bimetre3").html("<b>Bimestre 3:</b> "+result[0].bimestre3);
+                    $("#numero_clases_bimetre4").html("<b>Bimestre 4:</b> "+result[0].bimestre4);
+                    //$("#dia").val(result[0].dia);
+                }
+            });
+        } catch (error) {
+            alert(error);
         }
     },
 
@@ -207,10 +231,10 @@ var app = {
                     $('#listaEstudiantes').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlStudent= "<li><a href='#PageDetalleEstudiante' onclick='app.verDetalleEstudiante("+p.id+
-                            ")' id='"+p.id+"' data-transition='slide'>"+
-                        "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
-                        "<p>Día: "+p.dia+"</p> <p>Lideres: "+p.lideres+"</p></a> </li>";
+                        htmlStudent= "<li><a href='#PageDetalleEstudiante' onclick='app.verDetalleEstudiante("+p.id+")'"+
+                            " id='"+p.id+"' data-transition='slide'>"+
+                            "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
+                            "<p>Día: "+p.dia+"</p> <p>Lideres: "+p.lideres+"</p></a> </li>";
                         $('#listarEstudiantes').append(htmlStudent);
                     }
                     $('#listarEstudiantes').listview('refresh');

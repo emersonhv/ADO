@@ -195,7 +195,7 @@
         <!-- DETALLE ESTUDIANTE-->
         <div data-role="page" id="PageDetalleEstudiante" data-theme="e">
             <div data-role="header">
-                <h1>Detalle Estudiante</h1>
+                <h1>Detalle de Estudiante</h1>
                 <div data-role="navbar" data-iconpos="bottom">
                     <ul>
                         <li>
@@ -225,7 +225,54 @@
                 </form>
             </div>
         </div>
+        <!-- LISTAR ESTUDIANTES-->
+        <div data-role="page" id="PageNotesEstudiante" data-theme="e" >
+            <div data-role="header">
+                <h1>Notas de Estudiante</h1>
+                <div data-role="navbar" data-iconpos="bottom">
+                    <ul>
+                        <li>
+                            <a href="index.html"  class="ui-btn-active ui-state-persist" data-direction="reverse"
+                               data-transition="slide" data-icon="back">
+                                Volver
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
+            <div data-role="main" class="ui-content" >
+                <h1 id="nombre_estudiante"></h1>
+                <h2 id="lideres_estudiante"></h2>
+                <br>
+                <label for="bimestre">Bimestre:</label>
+                <select name="bimestre" id="bimestre_est" data-theme="e" data-corners="false" data-native-menu="true">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <label for="clases">Clases:</label>
+                <select name="clases" id="clases_est" data-theme="e" data-corners="false" data-native-menu="true">
+                    <option value="Odres Nuevos">Odres Nuevos</option>
+                    <option value="Arrepentimiento de Obras Muertas">Arrepentimiento de Obras Muertas</option>
+                    <option value="Fe en Dios I y II">Fe en Dios I y II</option>
+                    <option value="Las Primeras Ofrendas">Las Primeras Ofrendas</option>
+                    <option value="Ofrendas Voluntarias">Ofrendas Voluntarias</option>
+                    <option value="Mi Posición en Cristo">Mi Posición en Cristo</option>
+                    <option value="La Oración Transformadora">La Oración Transformadora</option>
+                    <option value="Nueva Criatura">Nueva Criatura</option>
+                    <option value="Sal de tu Cueva">Sal de tu Cueva</option>
+                    <option value="Bautismo en Agua">Bautismo en Agua</option>
+                    <option value="Bautismo en el Cuerpo de Cristo">Bautismo en el Cuerpo de Cristo</option>
+                    <option value="Bautismo en el Espíritu Santo">Bautismo en el Espíritu Santo</option>
+                    <option value="El que Quiera ser el Mayor">El que Quiera ser el Mayor</option>
+                    <option value="Resurrección de los Muertos">Resurrección de los Muertos</option>
+                    <option value="Juicio Eterno">Juicio Eterno</option>
+                </select>
+            </div>
+
+        </div>
         <!-- Acerca De -->
         <div data-role="page" id="PageDialogAcercaDe" data-theme="e" data-dialog="true">
             <div data-role="header">
