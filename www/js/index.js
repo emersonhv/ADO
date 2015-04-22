@@ -48,7 +48,7 @@ var app = {
     },
 
     buscarClasesPorBimestre:function(){
-        $.mobile.showPageLoadingMsg("e", "Cargando...");
+        
         var bimestre = $("#bimestre").val();
         try {
             $.ajax({
@@ -66,7 +66,7 @@ var app = {
                     }
                     $('#clases').selectmenu('refresh', true);
                     $('#bimestre').selectmenu('refresh', true);
-                    $.mobile.hidePageLoadingMsg();
+                    
                     //$('#listarEstudiantes').listview('refresh');
                 }
             });
@@ -77,7 +77,7 @@ var app = {
 
     guardarEstudiante:function(){
         //if($("#id").val()=="") {
-            $.mobile.showPageLoadingMsg("e", "Guardando");
+            
             var nombre = $("#save_nombre").val();
             var apellidos = $("#save_apellidos").val();
             var lideres = $("#save_lideres").val();
@@ -90,7 +90,7 @@ var app = {
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    $.mobile.hidePageLoadingMsg();
+                    
                     alert(result.mensaje);
                     if(result.estado == true) {
                         //this.borrarFormulario();
@@ -122,7 +122,7 @@ var app = {
 
     enviarAsistencia:function(fecha){
         if($("#id").val()!="") {
-            $.mobile.showPageLoadingMsg("e", "Guardando");
+            
             var id_estudinte = $("#id").val();
             var nombre_clases = $("#clases").val();
             var carnet = $("#carnet").val();
@@ -138,7 +138,7 @@ var app = {
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    $.mobile.hidePageLoadingMsg();
+                    
                     alert(result.mensaje);
                 }
             });
@@ -150,7 +150,7 @@ var app = {
     listarAsistencia:function(){
         var fecha = $("#fecha_asistencia").val();//fecha_asistencia
         if(fecha != ""){
-            $.mobile.showPageLoadingMsg("e", "Cargando...");
+            
             try {
                 $.ajax({
                     type:'GET',
@@ -169,7 +169,7 @@ var app = {
                             $('#listaAsistencia').append(htmlAsistencia);
                         }
                         $('#listaAsistencia').listview('refresh');
-                        $.mobile.hidePageLoadingMsg();
+                        
                     }
                 });
             } catch (error){
@@ -203,7 +203,7 @@ var app = {
         try {
             var idE = $("#id_est_nota").val();
             var BIMESTRE = $("#bimestre_est").val();
-            $.mobile.showPageLoadingMsg("e", "Cargando...");
+            
             $.ajax({
                 type:'GET',
                 url:'http://ado.applublish.hol.es/notas/estudiante/'+idE+'/'+BIMESTRE,
@@ -224,7 +224,7 @@ var app = {
                         $('#NotasPorBimestre').append(htmlNotas);
                     }
                     $('#NotasPorBimestre').refresh();
-                    $.mobile.hidePageLoadingMsg();
+                    
                 }
             });
         } catch (error) {
@@ -234,7 +234,7 @@ var app = {
     
     editNota:function(idA,Nota){
         try {
-            $.mobile.showPageLoadingMsg("e", "Cargando...");
+            
             var put = "id_asistencia="+idA+"&nota="+Nota;
             $.ajax({
                 type:'PUT',
@@ -243,7 +243,7 @@ var app = {
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    $.mobile.hidePageLoadingMsg();
+                    
                     alert(result.mensaje);
                 }
             });
@@ -254,7 +254,7 @@ var app = {
 
     verDetalleEstudiante:function(idE){
         try {
-            $.mobile.showPageLoadingMsg("e", "Cargando...");
+            
             $.ajax({
                 type:'GET',
                 url:'http://ado.applublish.hol.es/estudiante/asistencia/'+idE,
@@ -268,7 +268,7 @@ var app = {
                     $("#numero_clases_bimetre2").html("<b>Bimestre 2:</b> "+result[0].bimestre2);
                     $("#numero_clases_bimetre3").html("<b>Bimestre 3:</b> "+result[0].bimestre3);
                     $("#numero_clases_bimetre4").html("<b>Bimestre 4:</b> "+result[0].bimestre4);
-                    $.mobile.hidePageLoadingMsg();
+                    
                 }
             });
         } catch (error) {
@@ -279,7 +279,6 @@ var app = {
     listarEstudiantes:function(){
 
         try {
-            $.mobile.showPageLoadingMsg("e", "Cargando...");
             $.ajax({
                 type:'GET',
                 url:'http://ado.applublish.hol.es/estudiantes',
@@ -297,7 +296,6 @@ var app = {
                         $('#listarEstudiantes').append(htmlStudent);
                     }
                     $('#listarEstudiantes').listview('refresh');
-                    $.mobile.hidePageLoadingMsg();
                 }
             });
         } catch (error){
