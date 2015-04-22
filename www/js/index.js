@@ -153,7 +153,7 @@ var app = {
                         $('#cantidad_asistencia').html("<b>Cantidad de estudiantes: "+result.length+"</b>");
                         for (var i = 0; i < result.length; i++) {
                             var p = result[i];
-                            htmlAsistencia = "<li><a href='#PageNotesEstudiante' onclick='app.verNotasEstudiante("+p.id+")'>"+
+                            htmlAsistencia = "<li><a href='#PageNotesEstudiante' onclick='app.estudiante("+p.id+")'>"+
                             "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
                             "<p>Lideres: "+p.lideres+ "</p> <p>Subred: "+p.subred+"</p> </a> </li>";
                             $('#listaAsistencia').append(htmlAsistencia);
@@ -169,12 +169,31 @@ var app = {
         }
     },
     
-    verNotasEstudiante:function(idE){
+    estudiante:function(idE){
         try {
 
             $.ajax({
                 type:'GET',
-                url:'http://ado.applublish.hol.es/notas/estudiante/'+idE,
+                url:'http://ado.applublish.hol.es/estudiante/'+idE,
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    $("#nombre_estudiante").html("<b>Nombre:</b> "+result[0].nombre+" "+result[0].apellidos);
+                    $("#lideres").html("<b>Apellidos:</b> "+result[0].lideres);
+                    //$("#dia").val(result[0].dia);
+                }
+            });
+        } catch (error) {
+            alert(error);
+        }
+    },
+    
+    verNotasEstudiante:function(idE,BIMESTRE){
+        try {
+
+            $.ajax({
+                type:'GET',
+                url:'http://ado.applublish.hol.es/notas/estudiante/'+idE+'/'+BIMESTRE,
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
