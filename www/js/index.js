@@ -219,7 +219,7 @@ var app = {
                         htmlNotas = "<h3>"+p.nombre_clases+"</h3><p><input type='text' data-corners='false'"+
                             " id='nota"+p.id_asistencia+"' value='"+p.nota+"'/></p>"+
                             "<p><button data-corners='false' class='ui-btn ui-input-btn' "+
-                            " onclick='app.editNota("+p.id_asistencia+",$('#nota"+p.id_asistencia+"').val())' "+
+                            " onclick='app.editNota("+p.id_asistencia+")' "+
                             "data-icon='check' data-iconpos='right'>Editar</button></p>";
                         $('#NotasPorBimestre').append(htmlNotas);
                     }
@@ -232,7 +232,8 @@ var app = {
         }
     },
     
-    editNota:function(idA,Nota){
+    editNota:function(idA){
+        var Nota = $("#nota"+idA).val();
         try {
             
             var put = "id_asistencia="+idA+"&nota="+Nota;
