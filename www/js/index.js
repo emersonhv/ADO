@@ -180,7 +180,7 @@ var app = {
                 dataType:'json',
                 success:function(result,status,jqXHR){
                     $("#nombre_estudiante").html("<b>Nombre:</b> "+result[0].nombre+" "+result[0].apellidos);
-                    $("#lideres").html("<b>Apellidos:</b> "+result[0].lideres);
+                    $("#lideres_estudiante").html("<b>Apellidos:</b> "+result[0].lideres);
                     $("#id_est_nota").val(p.id);
                 }
             });
