@@ -178,14 +178,16 @@ var app = {
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    $("#detalle_nombre").html("<b>Nombre:</b> "+result[0].nombre);
-                    $("#detalle_apellidos").html("<b>Apellidos:</b> "+result[0].apellidos);
-                    $("#detalle_lideres").html("<b>Lideres:</b> "+result[0].lideres);
-                    $("#numero_clases_bimetre1").html("<b>Bimestre 1:</b> "+result[0].bimestre1);
-                    $("#numero_clases_bimetre2").html("<b>Bimestre 2:</b> "+result[0].bimestre2);
-                    $("#numero_clases_bimetre3").html("<b>Bimestre 3:</b> "+result[0].bimestre3);
-                    $("#numero_clases_bimetre4").html("<b>Bimestre 4:</b> "+result[0].bimestre4);
-                    //$("#dia").val(result[0].dia);
+                    $("#nombre_estudiante").html("<b>Nombre:</b> "+result[0].nombre+" "+result[0].apellidos);
+                    $("#lideres").html("<b>Apellidos:</b> "+result[0].lideres);
+                    var htmlNotas='';
+                    $('#NotasPorBimestre').empty();
+                    for (var i = 0; i < result.length; i++) {
+                        var p = result[i];
+                        htmlAsistencia = "<p>"+p.nombre_clases+"<input style='width:20px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>Editar</button></p>";
+                        $('#NotasPorBimestre').append(htmlNotas);
+                    }
+                    //$('#NotasPorBimestre').listview('refresh');
                 }
             });
         } catch (error) {
