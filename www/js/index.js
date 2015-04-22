@@ -205,10 +205,10 @@ var app = {
                     $('#NotasPorBimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlNotas = "<p>"+p.nombre_clases+"<input style='width:10px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>Editar</button></p>";
-                        $('#NotasPorBimestre').append(htmlNotas).trigger('create');
+                        htmlNotas = "<li><h2>"+p.nombre_clases+"</h2><p><input style='width:10px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>+</button></p></li>";
+                        $('#NotasPorBimestre').append(htmlNotas);
                     }
-                    $('#NotasPorBimestre').refresh();
+                    $('#NotasPorBimestre').listview('refresh');
                 }
             });
         } catch (error) {
