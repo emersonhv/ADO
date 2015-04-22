@@ -217,7 +217,7 @@ var app = {
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
                         htmlNotas = "<h3>"+p.nombre_clases+"</h3><p><input type='text' data-corners='false'"+
-                            " id='nota"+p.id_asistencia+"' value='"+p.nota+"'/></p>"+
+                            " id='nota"+p.id_asistencia+"' value='"+p.nota+"' data-theme='e'/></p>"+
                             "<p><button data-corners='false' class='ui-btn ui-input-btn' "+
                             " onclick='app.editNota("+p.id_asistencia+")' "+
                             "data-icon='check' data-iconpos='right'>Editar</button></p>";
