@@ -216,7 +216,7 @@ var app = {
                     $('#NotasPorBimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlNotas = "<h3>"+p.nombre_clases+"</h3><p><input type='text' data-corners='false'"+
+                        htmlNotas = "<h3>"+p.nombre_clases+"</h3><p><input type='text' style='width:100%; heigth:15px;' data-corners='false'"+
                             " id='nota"+p.id_asistencia+"' value='"+p.nota+"' data-theme='e'/></p>"+
                             "<p><button data-corners='false' class='ui-btn ui-input-btn' "+
                             " onclick='app.editNota("+p.id_asistencia+")' "+
