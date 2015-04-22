@@ -16,6 +16,7 @@ var app = {
         document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
+        document.getElementById('bimestre_est').addEventListener('change', this.verNotasEstudiante, false);
     },
     // deviceready Event Handler
     //
@@ -180,7 +181,7 @@ var app = {
                 success:function(result,status,jqXHR){
                     $("#nombre_estudiante").html("<b>Nombre:</b> "+result[0].nombre+" "+result[0].apellidos);
                     $("#lideres").html("<b>Apellidos:</b> "+result[0].lideres);
-                    //$("#dia").val(result[0].dia);
+                    $("#id_est_nota").val(p.id);
                 }
             });
         } catch (error) {
@@ -188,22 +189,23 @@ var app = {
         }
     },
     
-    verNotasEstudiante:function(idE,BIMESTRE){
+    verNotasEstudiante:function(){
         try {
-
+            var idE = $("#id_est_nota").val();
+            var BIMESTRE = $("#bimestre_est").val();
             $.ajax({
                 type:'GET',
                 url:'http://ado.applublish.hol.es/notas/estudiante/'+idE+'/'+BIMESTRE,
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
-                    $("#nombre_estudiante").html("<b>Nombre:</b> "+result[0].nombre+" "+result[0].apellidos);
-                    $("#lideres").html("<b>Apellidos:</b> "+result[0].lideres);
+                    //$("#nombre_estudiante").html("<b>Nombre:</b> "+result[0].nombre+" "+result[0].apellidos);
+                    //$("#lideres").html("<b>Apellidos:</b> "+result[0].lideres);
                     var htmlNotas='';
                     $('#NotasPorBimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlAsistencia = "<p>"+p.nombre_clases+"<input style='width:20px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>Editar</button></p>";
+                        htmlAsistencia = "<p>"+p.nombre_clases+"<input style='width:10px;' type='text' id='"+p.id_asistencia+"' value='"+p.nota+"'/> <button>Editar</button></p>";
                         $('#NotasPorBimestre').append(htmlNotas);
                     }
                     //$('#NotasPorBimestre').listview('refresh');
@@ -239,8 +241,7 @@ var app = {
     },
 
     listarEstudiantes:function(){
-        //var f = new Date();
-        //var fecha = f.getDate() + "-" + (f.getMonth() +1) + "-" + f.getFullYear();
+
         try {
             $.ajax({
                 type:'GET',
