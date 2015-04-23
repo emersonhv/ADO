@@ -216,7 +216,7 @@ var app = {
                     $('#NotasPorBimestre').empty();
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
-                        htmlNotas = "<h3>"+p.nombre_clases+"</h3><p><input type='text' style='width:100%; height:15px;' data-corners='false'"+
+                        htmlNotas = "<h3>"+p.nombre_clases+"</h3><p><input type='text' style='width:100%; height:20px;' data-corners='false'"+
                             " id='nota"+p.id_asistencia+"' value='"+p.nota+"' data-theme='e'/></p>"+
                             "<p><button data-corners='false' class='ui-btn ui-input-btn' "+
                             " onclick='app.editNota("+p.id_asistencia+")' "+
@@ -311,19 +311,6 @@ var app = {
         }catch(error){
             alert(error);
         }
-
-        /*cordova.plugins.barcodeScanner.scan(
-          function (result) {
-              alert("We got a barcode\n" +
-                    "Result: " + result.text + "\n" +
-                    "Format: " + result.format + "\n" +
-                    "Cancelled: " + result.cancelled);
-          }, 
-          function (error) {
-              alert("Scanning failed: " + error);
-          }
-       );*/
-        
         
         scanner.scan( function (result) {
             /*console.log("Scanner result: \n" +
@@ -344,7 +331,7 @@ var app = {
                         $("#apellidos").val(result[0].apellidos);
                         $("#lideres").val(result[0].lideres);
                         $("#dia").val(result[0].dia);
-                        //$("#dia").val(result[0].dia);
+                        $("#cerrar_menu").click();
                     }
                 });
             } catch (error) {
