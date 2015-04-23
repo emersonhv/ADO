@@ -18,7 +18,7 @@
                 <div class="ui-panel-inner">
                     <ul data-role="listview" class="ui-listview">
                         <li data-icon="delete" class="ui-first-child">
-                            <a href="#" data-rel="close">Cerar menú</a>
+                            <a href="#" id="cerrar_menu" data-rel="close">Cerar menú</a>
                         </li>
                         <li data-icon="camera">
                             <a id="scan" href="#" data-transition="slide" data-corners="false">Escanear</a></li>
@@ -39,6 +39,7 @@
             </div>
             <div data-role="main" class="ui-content">
                 <form>
+                    <h2>Datos de asistencia</h2>
                     <label for="nombre">Nombre(s):</label>
                     <input type="hidden" name="id" id="id" >
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre(s)" data-theme="e" data-corners="false">
@@ -270,7 +271,6 @@
                 <h4>Desarrollador: Emerson Herrera Vásquez</h4>
                 <h4>Correo: <a href="mailto:emersonhv@gmail.com">emersonhv@gmail.com</a></h4>
             </div>
-
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
