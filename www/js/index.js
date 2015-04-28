@@ -11,7 +11,6 @@ var app = {
         // FUNCIONES DE PROCESOS
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
-        document.getElementById('btnBuscarId').addEventListener('click', this.buscarEstudianteId, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
         document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
@@ -19,6 +18,7 @@ var app = {
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
         document.getElementById('bimestre_est').addEventListener('change', this.verNotasEstudiante, false);
+        document.getElementById('btnBuscarId').addEventListener('click', this.buscarEstudianteId, false);
         
     },
     // deviceready Event Handler
