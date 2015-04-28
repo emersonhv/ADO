@@ -54,7 +54,7 @@ var app = {
         try {
             $.ajax({
                 type:'GET',
-                url:'http://ado.applublish.hol.es/bimestre/clases/'+bimestre,
+                url: 'http://ado.applublish.hol.es/bimestre/clases/'+bimestre,
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
@@ -307,7 +307,7 @@ var app = {
     
     buscarEstudianteId:function(){
         try {
-            var id = $('#id').val();
+            var id = $("#id").val();
             $.ajax({
                 type:'GET',
                 url:'http://ado.applublish.hol.es/estudiante/'+id,
