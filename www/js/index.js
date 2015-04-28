@@ -177,7 +177,7 @@ var app = {
                 alert(error);
             }
         } else {
-            alert("Ingrese fecha del día de asistencia.")
+            alert("Ingrese fecha del día de asistencia.");
         }
     },
     
