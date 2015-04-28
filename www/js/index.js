@@ -307,10 +307,10 @@ var app = {
     
     buscarEstudianteId:function(){
         try {
-            var id = $("#id").val();
+            var ide = $("#id").val();
             $.ajax({
                 type:'GET',
-                url:'http://ado.applublish.hol.es/estudiante/'+id,
+                url:'http://ado.applublish.hol.es/estudiante/'+ide,
                 cache:false,
                 dataType:'json',
                 success:function(result,status,jqXHR){
