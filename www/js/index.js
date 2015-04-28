@@ -11,6 +11,7 @@ var app = {
         // FUNCIONES DE PROCESOS
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
+        document.getElementById('btnBuscarId').addEventListener('click', this.buscarEstudianteId, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
         document.getElementById('guardarEstudianteBtn').addEventListener('click', this.guardarEstudiante, false);
         document.getElementById('reset').addEventListener('click', this.borrarFormulario, false);
@@ -300,6 +301,28 @@ var app = {
                 }
             });
         } catch (error){
+            alert(error);
+        }
+    },
+    
+    buscarEstudianteId:function(){
+        try {
+            var id = $('#id').val();
+            $.ajax({
+                type:'GET',
+                url:'http://ado.applublish.hol.es/estudiante/'+id,
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    $("#id").val(result[0].id);
+                    $("#nombre").val(result[0].nombre);
+                    $("#apellidos").val(result[0].apellidos);
+                    $("#lideres").val(result[0].lideres);
+                    $("#dia").val(result[0].dia);
+                    //$("#cerrar_menu").click();
+                }
+            });
+        } catch (error) {
             alert(error);
         }
     },
