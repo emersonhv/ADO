@@ -18,7 +18,7 @@ var app = {
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
         document.getElementById('bimestre_est').addEventListener('change', this.verNotasEstudiante, false);
-        //document.getElementById('btnBuscarId').addEventListener('click', this.buscarEstudianteId, false);
+        document.getElementById('btnBuscarId').addEventListener('click', this.buscarEstudianteId, false);
         
     },
     // deviceready Event Handler
@@ -319,7 +319,6 @@ var app = {
                     $("#apellidos").val(result[0].apellidos);
                     $("#lideres").val(result[0].lideres);
                     $("#dia").val(result[0].dia);
-                    //$("#cerrar_menu").click();
                 }
             });
         } catch (error) {
