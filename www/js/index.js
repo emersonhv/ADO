@@ -305,7 +305,7 @@ var app = {
         }
     },
     
-    /*buscarEstudianteId:function(){
+    buscarEstudianteId:function(){
         try {
             var ide = $("#id").val();
             $.ajax({
@@ -325,7 +325,7 @@ var app = {
         } catch (error) {
             alert(error);
         }
-    },*/
+    },
 
     scan:function() {
         console.log('scanning');
