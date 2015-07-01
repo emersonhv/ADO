@@ -99,6 +99,32 @@
                 </form>
             </div>
         </div>
+        <!-- LISTAR ESTUDIANTES-->
+        <div data-role="page" id="PageListEstudiante" data-theme="e" >
+            <div data-role="header">
+                <h1>Buscar Estudiante</h1>
+                <div data-role="navbar" data-iconpos="bottom">
+                    <ul>
+                        <li>
+                            <a href="index.html"  class="ui-btn-active ui-state-persist" data-direction="reverse"
+                               data-transition="slide" data-icon="back">
+                                Volver
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content" >
+                <form class="ui-filterable">
+                    <input id="buscarEstudiante" data-corners="false" data-type="search" data-theme="e" placeholder="Buscar Estudiante">
+                </form>
+
+                <ul id="listarEstudiantes" data-corners="false" data-corners="false" data-role="listview" data-filter="true" data-input="#buscarEstudiante" data-inset="true" data-theme="e" data-filter-reveal="true">
+
+                </ul>
+            </div>
+        </div>
         <!-- GUARDAR ESTUDIANTE -->
         <div data-role="page" id="PageEstudiante" data-theme="a">
             <div data-role="header">
