@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="jquerymobilexo/themes/jquerymobilexo.min.css"/>
+        <link rel="stylesheet" type="text/css" href="jquerymobilexo/themes/jquery.mobile.icons.min.css"/>
+        <!--link rel="stylesheet" href="jquerymobile/jquery.mobile.theme-1.4.5.min.css" /-->
+        <link rel="stylesheet" href="jquerymobile/jquery.mobile.structure-1.4.5.min.css" />
+        
+        <title>Ingreso ADO</title>
+    </head>
+    <body>
+        <div data-role="page" id="estudiante" data-theme="a">
+            <div data-role="header">
+                <h1>Nuevo Estudiante</h1>
+                <div data-role="navbar" data-iconpos="bottom">
+                    <ul>
+                        <li>
+                            <a href="index.html" rel="external" id="lista" class="ui-btn-active ui-state-persist" data-direction="reverse"
+                               data-transition="slide" data-icon="back">
+                                Volver
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <form>
+                    <label for="nombre">Nombre(s):</label>
+                    <input type="hidden" name="id" id="id" >
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre(s)" data-theme="a" data-corners="false">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" data-theme="a" data-corners="false">
+                    <label for="lideres">Nombre de Lideres:</label>
+                    <input type="text" name="lideres" id="lideres" placeholder="Nombre de Lideres" data-theme="a" data-corners="false">
+                    <label for="dia">Día:</label>
+                    <input type="text" name="dia" id="dia" placeholder="Día de asistencia a ADO" data-theme="a" data-corners="false">
+                    
+                    <br>
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <input type="button" data-corners="false" class="ui-btn ui-input-btn" value="Nuevo Estudiante" id="guardarEstudianteBtn" data-icon="plus" data-iconpos="top" data-theme="a"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <input onclick="scan()" type="button" data-corners="false" class="ui-btn ui-input-btn" value="Scan" id="reset" data-icon="delete" data-iconpos="top" data-theme="a"/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="barcodescanner.js"></script>
+        <!--script type="text/javascript" src="js/index.js"></script-->
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+        <!--script type="text/javascript" src="deviceinformation.js"></script-->
+        <script type="text/javascript">
+            function scan() {
+                console.log('scanning');
+                try{
+                    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+                }catch(error){
+                    alert(error);
+                }
+                
+                scanner.scan( function (result) {
+                    alert("Scanner result: \n" +
+                        "text: " + result.text + "\n" +
+                        "format: " + result.format + "\n" +
+                        "cancelled: " + result.cancelled + "\n");
+                    try {
+                        var str = result.text.toString();
+                        var est = str.split(":");
+                        $.ajax({
+                            type:'GET',
+                            url:'http://ado.applublish.hol.es/estudiante/'+est[0],
+                            cache:false,
+                            dataType:'json',
+                            success:function(result,status,jqXHR){
+                                $("#id").val(result[0].id);
+                                $("#nombre").val(result[0].nombre);
+                                $("#apellidos").val(result[0].apellidos);
+                                $("#lideres").val(result[0].lideres);
+                                $("#dia").val(result[0].dia);
+                                $("#cerrar_menu").click();
+                            }
+                        });
+                    } catch (error) {
+                        alert(error);
+                    }
+                    //document.getElementById("info").innerHTML = result.text;
+                    //console.log(result);
+                    /*
+                    if (args.format == "QR_CODE") {
+                        window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+                    }
+                    */
+        
+                }, function (error) {
+                    console.log("Scanning failed: ", error);
+                    alert("Scanning failed: ", error);
+                } );
+            }
+            /*try {
+                app.initialize();
+            } catch (error) {
+                alert(error);
+            }
+            */
+            $( document ).on( "pageinit", "#index", function() {
+                $( document ).on( "swiperight", "#index", function( e ) {
+                    // We check if there is no open panel on the page because otherwise
+                    // a swipe to close the left panel would also open the right panel (and v.v.).
+                    // We do this by checking the data that the framework stores on the page element (panel: open).
+                    if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+                        if ( e.type === "swiperight"  ) {
+                            $( "#navpanel" ).panel( "open" );
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

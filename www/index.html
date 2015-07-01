@@ -12,64 +12,66 @@
         <title>Ingreso ADO</title>
     </head>
     <body>
-        <div data-role="page" id="index" data-theme="a">
+        <div data-role="page" id="index" data-theme="d">
             <!--MENU-->
-            <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="a" id="navpanel">
+            <div data-role="panel" data-position-fixed="true" data-display="overlay" data-theme="d" id="navpanel">
                 <div class="ui-panel-inner">
                     <ul data-role="listview" class="ui-listview">
                         <li data-icon="delete" class="ui-first-child">
                             <a href="#" id="cerrar_menu" data-rel="close">Cerar menú</a>
                         </li>
                         <li data-icon="camera">
-                            <a id="scan" href="#" data-transition="slide" data-corners="true">Escanear</a></li>
+                            <a id="scan" href="#" data-transition="slide" data-corners="false">Escanear</a></li>
                         <li data-icon="plus">
-                            <a id="guardarEstudiante" href="#PageEstudiante" data-transition="slide" data-corners="true">Nuevo estudiante</a></li>
+                            <a id="guardarEstudiante" href="#PageEstudiante" data-transition="slide" data-corners="false">Nuevo estudiante</a></li>
                         <li data-icon="search">
-                            <a id="listarAsistencia" href="#PageListarAsistencia" data-transition="slide" id="list" data-corners="true">Buscar asistencia</a></li>
+                            <a id="listarAsistencia" href="#PageListarAsistencia" data-transition="slide" id="list" data-corners="false">Buscar asistencia</a></li>
                         <li data-icon="search">
-                            <a id="listarEstudiantesLink" href="#PageListEstudiante" data-transition="slide" data-corners="true">Buscar estudiante</a></li>
+                            <a id="listarEstudiantesLink" href="#PageListEstudiante" data-transition="slide" data-corners="false">Buscar estudiante</a></li>
+                        <li data-icon="search">
+                            <a id="prueba" href="prueba.html" rel="external" data-transition="slide" data-corners="false">Prueba</a></li>
                         <!--li data-icon="info">
-                            <a id="acercaDe" href="#PageDialogAcercaDe" data-transition="pop" data-corners="true">Acerca de</a></li-->
+                            <a id="acercaDe" href="#PageDialogAcercaDe" data-transition="pop" data-corners="false">Acerca de</a></li-->
                     </ul>
                 </div>
             </div>
             <div data-role="header">
                 <h1></h1>
-                <a href="#navpanel" data-corners="true" data-icon="bars" data-iconpos="left" role="button">Menu</a>
+                <a href="#navpanel" data-corners="false" data-icon="bars" data-iconpos="left" role="button">Menu</a>
             </div>
             <div data-role="main" class="ui-content">
                 <form>
                     <h2>Asistencia</h2>
                     
-                    <input type="text" name="id" id="id" placeholder="Ingresar id de estudiante" data-theme="a" data-corners="true">
-                    <input type="button" data-corners="true" class="ui-btn ui-input-btn" value="Buscar Estudiante" id="btnBuscarId" data-icon="search" data-iconpos="right" data-theme="a"/>
+                    <input type="text" name="id" id="id" placeholder="Ingresar id de estudiante" data-theme="d" data-corners="false">
+                    <input type="button" data-corners="false" class="ui-btn ui-input-btn" value="Buscar Estudiante" id="btnBuscarId" data-icon="search" data-iconpos="right" data-theme="d"/>
                     <label for="nombre">Nombre(s):</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre(s)" data-theme="a" data-corners="true">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre(s)" data-theme="d" data-corners="false">
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" data-theme="a" data-corners="true">
+                    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" data-theme="d" data-corners="false">
                     <label for="lideres">Nombre de Lideres:</label>
-                    <input type="text" name="lideres" id="lideres" placeholder="Nombre de lideres" data-theme="a" data-corners="true">
+                    <input type="text" name="lideres" id="lideres" placeholder="Nombre de lideres" data-theme="d" data-corners="false">
                     <label for="dia">Día:</label>
-                    <input type="text" name="dia" id="dia" placeholder="Día de asistencia a ADO" data-theme="a" data-corners="true">
+                    <input type="text" name="dia" id="dia" placeholder="Día de asistencia a ADO" data-theme="d" data-corners="false">
                     
                     <label for="fecha">Fecha de Asistencia:</label>
-                    <input type="date" name="fecha" id="fecha" placeholder="Fecha de asistencia" data-theme="a" data-corners="true">
+                    <input type="date" name="fecha" id="fecha" placeholder="Fecha de asistencia" data-theme="d" data-corners="false">
                     
                     <label for="carnet">Carnet:</label>
-                    <select name="carnet" id="carnet" data-role="slider" data-theme="a" data-corners="true">
+                    <select name="carnet" id="carnet" data-role="slider" data-theme="d" data-corners="false">
                         <option value="NO">NO</option>
                         <option value="SI">SI</option>
                     </select>
                     
                     <label for="bimestre">Bimestre:</label>
-                    <select name="bimestre" id="bimestre" data-theme="a" data-corners="true" data-native-menu="true">
+                    <select name="bimestre" id="bimestre" data-theme="d" data-corners="false" data-native-menu="true">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                     </select>
                     <label for="clases">Clases:</label>
-                    <select name="clases" id="clases" data-theme="a" data-corners="true" data-native-menu="true">
+                    <select name="clases" id="clases" data-theme="d" data-corners="false" data-native-menu="true">
                         <option value="Odres Nuevos">Odres Nuevos</option>
                         <option value="Arrepentimiento de Obras Muertas">Arrepentimiento de Obras Muertas</option>
                         <option value="Fe en Dios I y II">Fe en Dios I y II</option>
@@ -90,10 +92,10 @@
                     
                     <fieldset class="ui-grid-a">
                         <div class="ui-block-a">
-                            <input type="button" data-corners="true" class="ui-btn ui-input-btn" value="Enviar Asistencia" id="enviarAsistenciaBtn" data-icon="check" data-iconpos="top" data-theme="a"/>
+                            <input type="button" data-corners="false" class="ui-btn ui-input-btn" value="Enviar Asistencia" id="enviarAsistenciaBtn" data-icon="check" data-iconpos="top" data-theme="d"/>
                         </div>
                         <div class="ui-block-b">
-                            <input type="button" data-corners="true" class="ui-btn ui-input-btn" value="Borrar Formulario" id="reset" data-icon="delete" data-iconpos="top" data-theme="a"/>
+                            <input type="button" data-corners="false" class="ui-btn ui-input-btn" value="Borrar Formulario" id="reset" data-icon="delete" data-iconpos="top" data-theme="d"/>
                         </div>
                     </fieldset>
                 </form>
@@ -126,7 +128,7 @@
             </div>
         </div>
         <!-- GUARDAR ESTUDIANTE -->
-        <div data-role="page" id="PageEstudiante" data-theme="a">
+        <div data-role="page" id="PageEstudiante" data-theme="d">
             <div data-role="header">
                 <h1>Nuevo Estudiante</h1>
                 <div data-role="navbar" data-iconpos="bottom">
@@ -144,28 +146,28 @@
             <div data-role="main" class="ui-content">
                 <form>
                     <label for="nombre">Nombre(s):</label>
-                    <input type="text" name="nombre" id="save_nombre" placeholder="Nombre(s)" data-theme="a" data-corners="true">
+                    <input type="text" name="nombre" id="save_nombre" placeholder="Nombre(s)" data-theme="d" data-corners="false">
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" name="apellidos" id="save_apellidos" placeholder="Apellidos" data-theme="a" data-corners="true">
+                    <input type="text" name="apellidos" id="save_apellidos" placeholder="Apellidos" data-theme="d" data-corners="false">
                     <label for="lideres">Nombre de Lideres:</label>
-                    <input type="text" name="lideres" id="save_lideres" placeholder="Nombre de Lideres" data-theme="a" data-corners="true">
+                    <input type="text" name="lideres" id="save_lideres" placeholder="Nombre de Lideres" data-theme="d" data-corners="false">
                     <label for="dia">Día:</label>
-                    <input type="text" name="dia" id="save_dia" placeholder="Día de asistencia a ADO" data-theme="a" data-corners="true">
+                    <input type="text" name="dia" id="save_dia" placeholder="Día de asistencia a ADO" data-theme="d" data-corners="false">
                     
                     <br>
                     <fieldset class="ui-grid-a">
                         <div class="ui-block-a">
-                            <input type="button" data-corners="true" class="ui-btn ui-input-btn" value="Nuevo Estudiante" id="guardarEstudianteBtn" data-icon="plus" data-iconpos="top" data-theme="a"/>
+                            <input type="button" data-corners="false" class="ui-btn ui-input-btn" value="Nuevo Estudiante" id="guardarEstudianteBtn" data-icon="plus" data-iconpos="top" data-theme="d"/>
                         </div>
                         <div class="ui-block-b">
-                            <input type="reset" data-corners="true" class="ui-btn ui-input-btn" value="Borrar Formulario" id="reset2" data-icon="delete" data-iconpos="top" data-theme="a"/>
+                            <input type="reset" data-corners="false" class="ui-btn ui-input-btn" value="Borrar Formulario" id="reset2" data-icon="delete" data-iconpos="top" data-theme="d"/>
                         </div>
                     </fieldset>
                 </form>
             </div>
         </div>
         <!--PAGINA LISTAR ASISTENCIA-->
-        <div data-role="page" id="PageListarAsistencia" data-theme="a">
+        <div data-role="page" id="PageListarAsistencia" data-theme="d">
             <div data-role="header">
                 <h1>Listar Asistencia</h1>
                 <div data-role="navbar" data-iconpos="bottom">
@@ -181,21 +183,21 @@
             </div>
 
             <div data-role="main" class="ui-content" >
-                <input type="date" name="fecha_asistencia" id="fecha_asistencia" placeholder="Fecha de asistencia" data-theme="a" data-corners="true">
-                <input type="button" class="ui-btn ui-input-btn" value="Listar Asistencia" id="listarAsistenciaBtn" data-icon="check" data-iconpos="rigth" data-theme="a" data-corners="true"/>
+                <input type="date" name="fecha_asistencia" id="fecha_asistencia" placeholder="Fecha de asistencia" data-theme="d" data-corners="false">
+                <input type="button" class="ui-btn ui-input-btn" value="Listar Asistencia" id="listarAsistenciaBtn" data-icon="check" data-iconpos="rigth" data-theme="d" data-corners="false"/>
                 <br>
                 <label id="cantidad_asistencia"><b>Cantidad de estudiantes: </b></label>
                 <form class="ui-filterable">
-                    <input id="buscarAsistencia" data-type="search" data-theme="a" placeholder="Buscar" data-corners="true">
+                    <input id="buscarAsistencia" data-type="search" data-theme="d" placeholder="Buscar" data-corners="false">
                 </form>
-                <ul id="listaAsistencia" data-role="listview" data-corners="true" data-filter="true" data-input="#buscarAsistencia" data-inset="true" data-theme="a">
+                <ul id="listaAsistencia" data-role="listview" data-corners="false" data-filter="true" data-input="#buscarAsistencia" data-inset="true" data-theme="d">
 
                 </ul>
             </div>
 
         </div>
         <!-- DETALLE ESTUDIANTE-->
-        <div data-role="page" id="PageDetalleEstudiante" data-theme="a">
+        <div data-role="page" id="PageDetalleEstudiante" data-theme="d">
             <div data-role="header">
                 <h1>Detalle de Estudiante</h1>
                 <div data-role="navbar" data-iconpos="bottom">
@@ -228,7 +230,7 @@
             </div>
         </div>
         <!-- NOTAS ESTUDIANTES-->
-        <div data-role="page" id="PageNotesEstudiante" data-theme="a" >
+        <div data-role="page" id="PageNotesEstudiante" data-theme="d" >
             <div data-role="header">
                 <h1>Notas de Estudiante</h1>
                 <div data-role="navbar" data-iconpos="bottom">
@@ -249,26 +251,26 @@
                 <input type="hidden" id="id_est_nota"/>
                 <br>
                 <h3 for="bimestre">Bimestre:</h3>
-                <select name="bimestre" id="bimestre_est" data-theme="a" data-corners="true" data-native-menu="true">
+                <select name="bimestre" id="bimestre_est" data-theme="d" data-corners="false" data-native-menu="true">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
                 <br>
-                <div id="NotasPorBimestre" data-theme="a">
+                <div id="NotasPorBimestre" data-theme="d">
    
                 </div>
             </div>
 
         </div>
         <!-- Acerca De -->
-        <!--div data-role="page" id="PageDialogAcercaDe" data-theme="a" data-dialog="true">
+        <!--div data-role="page" id="PageDialogAcercaDe" data-theme="d" data-dialog="true">
             <div data-role="header">
                 <h1>Acerca de</h1>
             </div>
 
-            <div data-role="main" class="ui-content" data-theme="a">
+            <div data-role="main" class="ui-content" data-theme="d">
                 <h4>Desarrollador: Emerson Herrera Vásquez</h4>
                 <h4>Correo: <a href="mailto:emersonhv@gmail.com">emersonhv@gmail.com</a></h4>
             </div>
