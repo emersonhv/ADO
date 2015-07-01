@@ -66,8 +66,6 @@ var app = {
                     }
                     $('#clases').selectmenu('refresh', true);
                     $('#bimestre').selectmenu('refresh', true);
-                    
-                    //$('#listarEstudiantes').listview('refresh');
                 }
             });
         } catch (error){
