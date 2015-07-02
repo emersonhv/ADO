@@ -79,7 +79,7 @@ var app = {
             var nombre = $("#save_nombre").val();
             var apellidos = $("#save_apellidos").val();
             var lideres = $("#save_lideres").val();
-            var dia = $("#save_dia").val();
+            //var dia = $("#save_dia").val();
             var post = "nombre="+nombre+"&apellidos="+apellidos+"&dia="+dia+"&lideres="+lideres;
             $.ajax({
                 type:'POST',
@@ -215,7 +215,7 @@ var app = {
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
                         htmlNotas = "<h3>"+p.nombre_clases+"</h3><p><input type='text' style='width:100%; height:20px;' data-corners='false'"+
-                            " id='nota"+p.id_asistencia+"' value='"+p.nota+"' data-theme='e'/></p>"+
+                            " id='nota"+p.id_asistencia+"' value='"+p.nota+"' data-theme='d'/></p>"+
                             "<p><button data-corners='false' class='ui-btn ui-input-btn' "+
                             " onclick='app.editNota("+p.id_asistencia+")' "+
                             "data-icon='check' data-iconpos='right'>Editar</button></p>";
@@ -291,7 +291,7 @@ var app = {
                         htmlStudent= "<li><a href='#PageDetalleEstudiante' onclick='app.verDetalleEstudiante("+p.id+")'"+
                             " id='"+p.id+"' data-transition='slide'>"+
                             "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
-                            "<p>Día: "+p.dia+"</p> <p>Lideres: "+p.lideres+"</p></a> </li>";
+                            "</p> <p>Lideres: "+p.lideres+"</p></a> </li>";
                         $('#listarEstudiantes').append(htmlStudent);
                     }
                     $('#listarEstudiantes').listview('refresh');
@@ -315,7 +315,7 @@ var app = {
                     $("#nombre").val(result[0].nombre);
                     $("#apellidos").val(result[0].apellidos);
                     $("#lideres").val(result[0].lideres);
-                    $("#dia").val(result[0].dia);
+                    //$("#dia").val(result[0].dia);
                 }
             });
         } catch (error) {
@@ -349,7 +349,7 @@ var app = {
                         $("#nombre").val(result[0].nombre);
                         $("#apellidos").val(result[0].apellidos);
                         $("#lideres").val(result[0].lideres);
-                        $("#dia").val(result[0].dia);
+                        //$("#dia").val(result[0].dia);
                         $("#cerrar_menu").click();
                     }
                 });
