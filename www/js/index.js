@@ -80,7 +80,7 @@ var app = {
             var apellidos = $("#save_apellidos").val();
             var lideres = $("#save_lideres").val();
             //var dia = $("#save_dia").val();
-            var post = "nombre="+nombre+"&apellidos="+apellidos+"&dia="+dia+"&lideres="+lideres;
+            var post = "nombre="+nombre+"&apellidos="+apellidos+"&lideres="+lideres;
             $.ajax({
                 type:'POST',
                 url:'http://ado.applublish.hol.es/estudiante',
@@ -157,8 +157,10 @@ var app = {
                     dataType:'json',
                     success:function(result,status,jqXHR){
                         //var htmlAsistencia='';
-                        $('#listaAsistencia').empty();
-                        $('#cantidad_asistencia').html("<h2>Cantidad de estudiantes: "+result.length+"</h2>");
+                        //$('#listaAsistencia').empty();
+                        //text-align:center
+                        $('#cantidad_asistencia').html("<h2 style='text-align:center'>"+result.length+"</h2>"); 
+                        $('#cantidad_asistencia_text').html("<h2 style='text-align:center'>Cantidad de Estudiantes</h2>");
                         /*for (var i = 0; i < result.length; i++) {
                             var p = result[i];
                             htmlAsistencia = "<li><a href='#PageNotesEstudiante' onclick='app.estudiante("+p.id+")'>"+

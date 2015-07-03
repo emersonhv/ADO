@@ -25,7 +25,7 @@
                         <li data-icon="plus">
                             <a id="guardarEstudiante" href="#PageEstudiante" data-transition="slide" data-corners="false">Nuevo estudiante</a></li>
                         <li data-icon="search">
-                            <a id="listarAsistencia" href="#PageListarAsistencia" data-transition="slide" id="list" data-corners="false" data-prefetch>Listar asistencia</a></li>
+                            <a id="listarAsistencia" href="#PageListarAsistencia" data-transition="slide" id="list" data-corners="false" data-prefetch>Asistencia</a></li>
                         <li data-icon="search">
                             <a id="listarEstudiantesLink" href="#PageListEstudiante" data-transition="slide" data-corners="false">Buscar estudiante</a></li>
                         <!--li data-icon="search">
@@ -139,8 +139,8 @@
                     <input type="text" name="apellidos" id="save_apellidos" placeholder="Apellidos" data-theme="d" data-corners="false">
                     <label for="lideres">Nombre de Lideres:</label>
                     <input type="text" name="lideres" id="save_lideres" placeholder="Nombre de Lideres" data-theme="d" data-corners="false">
-                    <label for="dia">Día:</label>
-                    <input type="text" name="dia" id="save_dia" placeholder="Día de asistencia a ADO" data-theme="d" data-corners="false">
+                    <!--label for="dia">Día:</label>
+                    <input type="text" name="dia" id="save_dia" placeholder="Día de asistencia a ADO" data-theme="d" data-corners="false"-->
                     
                     <br>
                     <fieldset class="ui-grid-a">
@@ -168,7 +168,8 @@
                 <input type="date" name="fecha_asistencia" id="fecha_asistencia" placeholder="Fecha de asistencia" data-theme="d" data-corners="false">
                 <input type="button" class="ui-btn ui-input-btn" value="Listar Asistencia" id="listarAsistenciaBtn" data-icon="check" data-iconpos="rigth" data-theme="d" data-corners="false"/>
                 <br>
-                <label id="cantidad_asistencia"><h2>Cantidad de estudiantes: </h2></label>
+                <label id="cantidad_asistencia"><h2 style='text-align:center'></h2></label>
+                <label id="cantidad_asistencia_text"><h2 style='text-align:center'>Cantidad de Estudiantes</h2></label>
                 <br>
                 <!--form class="ui-filterable">
                     <input type="text" id="buscarAsistencia" data-type="search" data-theme="d" placeholder="Buscar" data-corners="false">
