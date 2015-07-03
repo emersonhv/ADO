@@ -105,6 +105,7 @@ var app = {
         
         var clase = $("#clasesSelect").val();
         alert(clase);
+        $('#clasesSelect').selectmenu('refresh', true);
         try {
             $.ajax({
                 type:'GET',
