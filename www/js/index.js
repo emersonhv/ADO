@@ -17,6 +17,7 @@ var app = {
         //document.getElementById('listarAsistenciaBtn').addEventListener('click', this.listarAsistencia, false);
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
+        document.getElementById('bimestreSelect').addEventListener('change', this.buscarClasesPorBimestre2, false);
         document.getElementById('bimestre_est').addEventListener('change', this.verNotasEstudiante, false);
         document.getElementById('btnBuscarId').addEventListener('click', this.buscarEstudianteId, false);    
     },
@@ -66,6 +67,32 @@ var app = {
                     }
                     $('#clases').selectmenu('refresh', true);
                     $('#bimestre').selectmenu('refresh', true);
+                }
+            });
+        } catch (error){
+            alert(error);
+        }
+    },
+    
+    buscarClasesPorBimestre2:function(){
+        
+        var bimestre = $("#bimestreSelect").val();
+        try {
+            $.ajax({
+                type:'GET',
+                url: 'http://ado.applublish.hol.es/bimestre/clases/'+bimestre,
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    var htmlClases='';
+                    $('#clasesSelect').empty();
+                    for (var i = 0; i < result.length; i++) {
+                        var p = result[i];
+                        htmlClases = "<option value='"+p.nombre+"'>"+p.nombre+"</option>";
+                        $('#clasesSelect').append(htmlClases);
+                    }
+                    $('#clasesSelect').selectmenu('refresh', true);
+                    //$('#bimestreSelect').selectmenu('refresh', true);
                 }
             });
         } catch (error){
