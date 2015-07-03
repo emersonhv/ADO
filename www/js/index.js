@@ -18,7 +18,7 @@ var app = {
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
         document.getElementById('bimestreSelect').addEventListener('change', this.buscarClasesPorBimestre2, false);
-        document.getElementById('clasesSelect').addEventListener('change', this.consultarAsistenciaPorClase, false);
+        document.getElementById('consultarAsistenciaBtn').addEventListener('click', this.consultarAsistenciaPorClase, false);
         document.getElementById('bimestre_est').addEventListener('change', this.verNotasEstudiante, false);
         document.getElementById('btnBuscarId').addEventListener('click', this.buscarEstudianteId, false);    
     },

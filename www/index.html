@@ -25,7 +25,7 @@
                         <li data-icon="plus">
                             <a id="guardarEstudiante" href="#PageEstudiante" data-transition="slide" data-corners="false">Nuevo estudiante</a></li>
                         <li data-icon="search">
-                            <a id="listarAsistencia" href="#PageListarAsistencia" data-transition="slide" id="list" data-corners="false" data-prefetch>Asistencia</a></li>
+                            <a id="listarAsistencia" href="#PageListarAsistencia" data-transition="slide" id="list" data-corners="false" data-prefetch>Ver Asistencia</a></li>
                         <li data-icon="search">
                             <a id="listarEstudiantesLink" href="#PageListEstudiante" data-transition="slide" data-corners="false">Buscar estudiante</a></li>
                         <!--li data-icon="search">
@@ -157,7 +157,7 @@
         <!--PAGINA LISTAR ASISTENCIA-->
         <div data-role="page" id="PageListarAsistencia" data-theme="d">
             <div data-role="header">
-                <h1>Listar Asistencia</h1>
+                <h1>Ver Asistencia</h1>
                 <a href="#index"  class="ui-btn-active ui-state-persist" data-direction="reverse"
                    data-transition="slide" data-icon="back" data-theme="d">
                     Atras
@@ -177,7 +177,9 @@
                 <select name="clases_asistencia" id="clasesSelect" data-theme="d" data-corners="false" data-native-menu="true">
                     
                 </select>
-                
+                <button type="button" class="ui-btn ui-input-btn" value="Consultar"  
+                        data-icon="search" data-iconpos="rigth" data-theme="d" data-corners="false" 
+                        id="consultarAsistenciaBtn"/>
                 <br>
                 <label id="cantidad_asistencia_text"><h2 style='text-align:center'>Cantidad de Estudiantes</h2></label>
                 <label id="cantidad_asistencia"><h2 style='text-align:center'></h2></label>
