@@ -18,6 +18,7 @@ var app = {
         document.getElementById('listarEstudiantesLink').addEventListener('click', this.listarEstudiantes, false);
         document.getElementById('bimestre').addEventListener('change', this.buscarClasesPorBimestre, false);
         document.getElementById('bimestreSelect').addEventListener('change', this.buscarClasesPorBimestre2, false);
+        document.getElementById('clasesSelect').addEventListener('change', this.consultarAsistenciaPorClase, false);
         document.getElementById('bimestre_est').addEventListener('change', this.verNotasEstudiante, false);
         document.getElementById('btnBuscarId').addEventListener('click', this.buscarEstudianteId, false);    
     },
@@ -93,6 +94,28 @@ var app = {
                     }
                     $('#clasesSelect').selectmenu('refresh', true);
                     //$('#bimestreSelect').selectmenu('refresh', true);
+                }
+            });
+        } catch (error){
+            alert(error);
+        }
+    },
+    
+    consultarAsistenciaPorClase:function(){
+        
+        var clase = $("#clasesSelect").val();
+        try {
+            $.ajax({
+                type:'GET',
+                url: 'http://ado.applublish.hol.es/asistencia/'+clase,
+                cache:false,
+                dataType:'json',
+                success:function(result,status,jqXHR){
+                    for (var i = 0; i < result.length; i++) {
+                        var p = result[i];
+                        $('#cantidad_asistencia').html("<h1 style='text-align:center'>"+p.cantidad+"</h1>"); 
+                        $('#cantidad_asistencia_text').html("<h2 style='text-align:center'>Cantidad de Estudiantes</h2>");
+                    }
                 }
             });
         } catch (error){
