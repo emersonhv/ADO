@@ -165,11 +165,23 @@
             </div>
             
             <div data-role="main" class="ui-content" >
-                <input type="date" name="fecha_asistencia" id="fecha_asistencia" placeholder="Fecha de asistencia" data-theme="d" data-corners="false">
-                <input type="button" class="ui-btn ui-input-btn" value="Listar Asistencia" id="listarAsistenciaBtn" data-icon="check" data-iconpos="rigth" data-theme="d" data-corners="false"/>
+                <label for="bimestre">Bimestre:</label>
+                <select name="bimestre" id="bimestre" data-theme="d" data-corners="false" data-native-menu="true">
+                    <option value="Seleccione bimestre">Seleccione bimestre</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <label for="clases">Clases:</label>
+                <select name="clases" id="clases" data-theme="d" data-corners="false" data-native-menu="true">
+                    
+                </select>
+                <!--input type="date" name="fecha_asistencia" id="fecha_asistencia" placeholder="Fecha de asistencia" data-theme="d" data-corners="false">
+                <input type="button" class="ui-btn ui-input-btn" value="Listar Asistencia" id="listarAsistenciaBtn" data-icon="check" data-iconpos="rigth" data-theme="d" data-corners="false"/-->
                 <br>
-                <label id="cantidad_asistencia"><h2 style='text-align:center'></h2></label>
                 <label id="cantidad_asistencia_text"><h2 style='text-align:center'>Cantidad de Estudiantes</h2></label>
+                <label id="cantidad_asistencia"><h2 style='text-align:center'></h2></label>
                 <br>
                 <!--form class="ui-filterable">
                     <input type="text" id="buscarAsistencia" data-type="search" data-theme="d" placeholder="Buscar" data-corners="false">
