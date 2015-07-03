@@ -156,18 +156,17 @@ var app = {
                     cache:false,
                     dataType:'json',
                     success:function(result,status,jqXHR){
-                        var htmlAsistencia='';
+                        //var htmlAsistencia='';
                         $('#listaAsistencia').empty();
                         $('#cantidad_asistencia').html("<b>Cantidad de estudiantes: "+result.length+"</b>");
-                        for (var i = 0; i < result.length; i++) {
+                        /*for (var i = 0; i < result.length; i++) {
                             var p = result[i];
                             htmlAsistencia = "<li><a href='#PageNotesEstudiante' onclick='app.estudiante("+p.id+")'>"+
                             "<h2>"+p.nombre + " " + p.apellidos+"</h2>"+
                             "<p>Lideres: "+p.lideres+ "</p> <p>Subred: "+p.subred+"</p> </a> </li>";
                             $('#listaAsistencia').append(htmlAsistencia);
-                        }
-                        $('#listaAsistencia').listview('refresh');
-                        
+                        }*/
+                        //$('#listaAsistencia').listview('refresh');
                     }
                 });
             } catch (error){
