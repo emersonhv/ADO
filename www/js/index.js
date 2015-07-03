@@ -93,7 +93,7 @@ var app = {
                         $('#clasesSelect').append(htmlClases);
                     }
                     $('#clasesSelect').selectmenu('refresh', true);
-                    //$('#bimestreSelect').selectmenu('refresh', true);
+                    $('#bimestreSelect').selectmenu('refresh', true);
                 }
             });
         } catch (error){
@@ -104,6 +104,7 @@ var app = {
     consultarAsistenciaPorClase:function(){
         
         var clase = $("#clasesSelect").val();
+        
         try {
             $.ajax({
                 type:'GET',
