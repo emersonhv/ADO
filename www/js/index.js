@@ -158,7 +158,7 @@ var app = {
                     success:function(result,status,jqXHR){
                         //var htmlAsistencia='';
                         $('#listaAsistencia').empty();
-                        $('#cantidad_asistencia').html("<b>Cantidad de estudiantes: "+result.length+"</b>");
+                        $('#cantidad_asistencia').html("<h2>Cantidad de estudiantes: "+result.length+"</h2>");
                         /*for (var i = 0; i < result.length; i++) {
                             var p = result[i];
                             htmlAsistencia = "<li><a href='#PageNotesEstudiante' onclick='app.estudiante("+p.id+")'>"+
