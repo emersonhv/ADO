@@ -190,6 +190,7 @@ var app = {
                     $("#nombre_estudiante").html("<b>Nombre: </b> "+result[0].nombre+" "+result[0].apellidos);
                     $("#lideres_estudiante").html("<b>Lideres: </b> "+result[0].lideres);
                     $("#id_est_nota").val(result[0].id);
+                    id_estudiante = result[0].id;
                 }
             });
         } catch (error) {
@@ -267,7 +268,8 @@ var app = {
                     $("#numero_clases_bimetre2").html("<b>Bimestre 2:</b> "+result[0].bimestre2);
                     $("#numero_clases_bimetre3").html("<b>Bimestre 3:</b> "+result[0].bimestre3);
                     $("#numero_clases_bimetre4").html("<b>Bimestre 4:</b> "+result[0].bimestre4);
-                    
+                    $("#id_est_nota").val(result[0].id);
+                    id_estudiante = result[0].id;
                 }
             });
         } catch (error) {
