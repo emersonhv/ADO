@@ -104,7 +104,7 @@ var app = {
     consultarAsistenciaPorClase:function(){
         
         var clase = $("#clasesSelect").val();
-        
+        alert(clase);
         try {
             $.ajax({
                 type:'GET',
