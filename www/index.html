@@ -163,14 +163,14 @@
                     Atras
                 </a>
             </div>
-
+            
             <div data-role="main" class="ui-content" >
                 <input type="date" name="fecha_asistencia" id="fecha_asistencia" placeholder="Fecha de asistencia" data-theme="d" data-corners="false">
                 <input type="button" class="ui-btn ui-input-btn" value="Listar Asistencia" id="listarAsistenciaBtn" data-icon="check" data-iconpos="rigth" data-theme="d" data-corners="false"/>
                 <br>
                 <label id="cantidad_asistencia"><b>Cantidad de estudiantes: </b></label>
                 <form class="ui-filterable">
-                    <input id="buscarAsistencia" data-type="search" data-theme="d" placeholder="Buscar" data-corners="false">
+                    <input type="text" id="buscarAsistencia" data-type="search" data-theme="d" placeholder="Buscar" data-corners="false">
                 </form>
                 <ul id="listaAsistencia" data-role="listview" data-corners="false" data-filter="true" data-input="#buscarAsistencia" data-inset="true" data-theme="d">
 
@@ -202,6 +202,10 @@
                     <label id="numero_clases_bimetre3" ></label>
                     <label id="numero_clases_bimetre4" ></label>
                     <br>
+                    <!-- onclick='app.estudiante("+p.id+")' -->
+                    <a type="button" class="ui-btn ui-input-btn" href="#PageNotesEstudiante" 
+                        data-icon="check" data-iconpos="rigth" data-theme="d" data-corners="false" 
+                        onclick="app.estudiante(id_estudiante)">Notas</a>
                 </form>
             </div>
         </div>
@@ -209,7 +213,7 @@
         <div data-role="page" id="PageNotesEstudiante" data-theme="d" >
             <div data-role="header">
                 <h1>Notas de Estudiante</h1>
-                <a href="#PageListarAsistencia"  class="ui-btn-active ui-state-persist" data-direction="reverse"
+                <a href="#PageDetalleEstudiante"  class="ui-btn-active ui-state-persist" data-direction="reverse"
                    data-transition="slide" data-icon="back" data-theme="d">
                     Atras
                 </a>
@@ -252,6 +256,8 @@
         <script type="text/javascript" src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
         <!--script type="text/javascript" src="deviceinformation.js"></script-->
         <script type="text/javascript">
+            var id_estudiante = 0;
+            var BIMESTRE = 1;
             try {
                 app.initialize();
             } catch (error) {
