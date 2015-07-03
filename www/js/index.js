@@ -113,6 +113,7 @@ var app = {
                 success:function(result,status,jqXHR){
                     for (var i = 0; i < result.length; i++) {
                         var p = result[i];
+                        alert(p.cantidad);
                         $('#cantidad_asistencia').html("<h1 style='text-align:center'>"+p.cantidad+"</h1>"); 
                         $('#cantidad_asistencia_text').html("<h2 style='text-align:center'>Cantidad de Estudiantes</h2>");
                     }
