@@ -103,8 +103,7 @@ var app = {
     
     consultarAsistenciaPorClase:function(){
         
-        var clase = $("#clasesSelect").val();        
-        $('#clasesSelect').selectmenu('refresh', true);
+        var clase = $("#clasesSelect").val();
         try {
             $.ajax({
                 type:'GET',
