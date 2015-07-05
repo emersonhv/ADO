@@ -50,15 +50,6 @@ var app = {
     },
 
     buscarClasesPorBimestre:function(){
-        
-        var bimestre = $("#bimestre").val();
-        $.mobile.loading( "show", {
-            text: false,
-            textVisible: false,
-            theme: 'd',
-            textonly: false,
-            html: ''
-        });
         try {
             $.ajax({
                 type:'GET',
@@ -80,7 +71,6 @@ var app = {
         } catch (error){
             alert(error);
         }
-        $.mobile.loading( "hide" );
     },
     
     buscarClasesPorBimestre2:function(){
@@ -110,7 +100,14 @@ var app = {
     },
     
     consultarAsistenciaPorClase:function(){
-        
+        var bimestre = $("#bimestre").val();
+        $.mobile.loading( "show", {
+            text: false,
+            textVisible: false,
+            theme: 'd',
+            textonly: false,
+            html: ''
+        });
         var clase = $("#clasesSelect").val();
         try {
             $.ajax({
@@ -129,6 +126,7 @@ var app = {
         } catch (error){
             alert(error);
         }
+        $.mobile.loading( "hide" );
     },
 
     guardarEstudiante:function(){
