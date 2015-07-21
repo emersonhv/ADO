@@ -9,6 +9,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents:function() {
         // FUNCIONES DE PROCESOS
+        
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('enviarAsistenciaBtn').addEventListener('click', this.enviarAsistencia, false);
@@ -65,7 +66,7 @@ var app = {
                         $('#clases').append(htmlClases);
                     }
                     $('#clases').selectmenu('refresh', true);
-                    $('#bimestre').selectmenu('refresh', true);
+                    //$('#bimestre').selectmenu('refresh', true);
                 }
             });
         } catch (error){
